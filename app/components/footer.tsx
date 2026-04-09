@@ -2,8 +2,8 @@ const footerSections = [
   {
     title: "Services",
     links: [
-      { label: "AI Automation", href: "#services" },
-      { label: "Software Development", href: "#services" },
+      { label: "Generative AI", href: "#services" },
+      { label: "Custom Software", href: "#services" },
       { label: "Mobile Apps", href: "#services" },
       { label: "UI/UX Design", href: "#services" },
       { label: "Cloud & DevOps", href: "#services" },
@@ -55,28 +55,46 @@ function GitHubIcon({ size = 16 }: { size?: number }) {
 
 const socials = [
   { icon: XIcon, href: "https://x.com/quantamend", label: "X / Twitter" },
-  { icon: LinkedInIcon, href: "https://linkedin.com/company/quantamend", label: "LinkedIn" },
-  { icon: GitHubIcon, href: "https://github.com/quantamend", label: "GitHub" },
+  {
+    icon: LinkedInIcon,
+    href: "https://linkedin.com/company/quantamend",
+    label: "LinkedIn",
+  },
+  {
+    icon: GitHubIcon,
+    href: "https://github.com/quantamend",
+    label: "GitHub",
+  },
 ];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border">
+    <footer className="relative border-t border-border">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan/20 to-transparent" />
+
       <div className="max-w-7xl mx-auto px-6">
         {/* Main footer */}
-        <div className="py-16 grid grid-cols-2 md:grid-cols-5 gap-10">
+        <div className="py-20 grid grid-cols-2 md:grid-cols-5 gap-10 lg:gap-16">
           {/* Brand column */}
           <div className="col-span-2">
-            <a href="#" className="text-xl font-bold tracking-tight flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-teal-400 flex items-center justify-center text-background text-sm font-black">
-                Q
-              </div>
-              <span>
-                <span className="text-accent">Quanta</span>
+            <a
+              href="#"
+              className="flex items-center gap-2.5 mb-5 group"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logo.svg"
+                alt="QuantaMend"
+                width={32}
+                height={32}
+                className="group-hover:scale-110 transition-transform duration-300"
+              />
+              <span className="text-xl font-bold tracking-tight">
+                <span className="text-cyan">Quanta</span>
                 <span className="text-foreground">Mend</span>
               </span>
             </a>
-            <p className="text-sm text-muted max-w-xs mb-6 leading-relaxed">
+            <p className="text-sm text-secondary max-w-xs mb-6 leading-relaxed">
               AI-driven software development and digital growth agency. We build
               dynamic tech architectures for modern businesses.
             </p>
@@ -88,7 +106,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-9 h-9 rounded-lg bg-surface-light border border-border flex items-center justify-center text-muted hover:text-accent hover:border-accent/30 transition-all"
+                  className="w-10 h-10 rounded-xl bg-surface border border-border flex items-center justify-center text-muted hover:text-cyan hover:border-cyan/30 hover:bg-cyan/5 transition-all duration-300"
                 >
                   <s.icon size={15} />
                 </a>
@@ -99,15 +117,15 @@ export default function Footer() {
           {/* Link columns */}
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h4 className="text-sm font-semibold text-foreground mb-4">
+              <h4 className="text-sm font-semibold text-foreground mb-5">
                 {section.title}
               </h4>
-              <ul className="space-y-2.5">
+              <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-sm text-muted hover:text-foreground transition-colors"
+                      className="text-sm text-muted hover:text-secondary transition-colors duration-200"
                     >
                       {link.label}
                     </a>
@@ -120,12 +138,22 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="py-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted/60">
+          <p className="text-xs text-muted/50">
             &copy; {new Date().getFullYear()} QuantaMend. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-xs text-muted/60 hover:text-muted transition-colors">Privacy Policy</a>
-            <a href="#" className="text-xs text-muted/60 hover:text-muted transition-colors">Terms of Service</a>
+            <a
+              href="#"
+              className="text-xs text-muted/50 hover:text-muted transition-colors"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="#"
+              className="text-xs text-muted/50 hover:text-muted transition-colors"
+            >
+              Terms of Service
+            </a>
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 export function useAnimate<T extends HTMLElement = HTMLDivElement>(
-  threshold = 0.15
+  threshold = 0.12
 ) {
   const ref = useRef<T>(null);
   const [visible, setVisible] = useState(false);

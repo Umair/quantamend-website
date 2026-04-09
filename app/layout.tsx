@@ -15,12 +15,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "QuantaMend — AI-Driven Software Development Agency",
   description:
-    "QuantaMend is an agile software development and digital growth agency specializing in AI-driven automation, robust backend engineering, and high-conversion digital marketing.",
+    "QuantaMend is a premium software development and digital growth agency specializing in AI-driven automation, robust backend engineering, and high-conversion digital marketing.",
   openGraph: {
     title: "QuantaMend — AI-Driven Software Development Agency",
     description:
       "We build dynamic tech architectures that adapt to the fast-paced demands of modern startups and established enterprises.",
     type: "website",
+  },
+  icons: {
+    icon: "/logo.svg",
   },
 };
 
@@ -34,7 +37,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="min-h-full flex flex-col bg-bg text-foreground overflow-x-hidden">
         {children}
       </body>
     </html>
