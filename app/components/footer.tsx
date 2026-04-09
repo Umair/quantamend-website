@@ -31,15 +31,15 @@ function GitHubIcon({ size = 16 }: { size?: number }) {
 }
 
 const socials = [
-  { icon: XIcon, href: "https://x.com/morphicstack", label: "X / Twitter" },
+  { icon: XIcon, href: "https://x.com/quantamend", label: "X / Twitter" },
   {
     icon: LinkedInIcon,
-    href: "https://linkedin.com/company/morphicstack",
+    href: "https://linkedin.com/company/quantamend",
     label: "LinkedIn",
   },
   {
     icon: GitHubIcon,
-    href: "https://github.com/morphicstack",
+    href: "https://github.com/quantamend",
     label: "GitHub",
   },
 ];
@@ -51,8 +51,8 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <a href="#" className="text-lg font-bold tracking-tight">
-              <span className="gradient-text">Morphic</span>
-              <span className="text-foreground">Stack</span>
+              <span className="gradient-text">Quanta</span>
+              <span className="text-foreground">Mend</span>
             </a>
             <p className="text-xs text-muted mt-1">
               AI-driven software development &amp; digital growth.
@@ -89,7 +89,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-border text-center">
           <p className="text-xs text-muted">
-            &copy; {new Date().getFullYear()} MorphicStack. All rights
+            &copy; {new Date().getFullYear()} QuantaMend. All rights
             reserved.
           </p>
         </div>

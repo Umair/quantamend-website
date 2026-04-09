@@ -32,14 +32,14 @@ export default function About() {
             className={`animate-left ${leftVisible ? "visible" : ""}`}
           >
             <p className="text-accent-light text-sm font-medium uppercase tracking-widest mb-3">
-              About MorphicStack
+              About QuantaMend
             </p>
             <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">
               Engineering That{" "}
               <span className="gradient-text">Adapts</span>
             </h2>
             <p className="text-muted leading-relaxed mb-4">
-              MorphicStack is an agile software development and digital growth
+              QuantaMend is an agile software development and digital growth
               agency. We specialize in AI-driven automation, robust backend
               engineering, and high-conversion digital marketing.
             </p>

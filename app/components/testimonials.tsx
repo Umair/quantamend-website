@@ -13,7 +13,7 @@ const stats = [
 const testimonials = [
   {
     quote:
-      "MorphicStack rebuilt our entire data pipeline in 6 weeks. We went from daily crashes to 99.99% uptime. Exceptional team.",
+      "QuantaMend rebuilt our entire data pipeline in 6 weeks. We went from daily crashes to 99.99% uptime. Exceptional team.",
     author: "Sarah Chen",
     role: "CTO, NovaPay",
   },

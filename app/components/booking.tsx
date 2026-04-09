@@ -32,7 +32,7 @@ export default function Booking() {
             <iframe
               src={calUrl}
               className="w-full min-h-[600px] border-0"
-              title="Book a call with MorphicStack"
+              title="Book a call with QuantaMend"
             />
           </div>
         ) : (
@@ -54,11 +54,11 @@ export default function Booking() {
               />
             </a>
             <a
-              href="mailto:hello@morphicstack.com"
+              href="mailto:hello@quantamend.com"
               className="px-8 py-4 border border-border hover:border-accent/40 text-foreground font-medium rounded-full transition-all duration-300 flex items-center gap-3"
             >
               <Mail size={18} />
-              hello@morphicstack.com
+              hello@quantamend.com
             </a>
           </div>
         )}
