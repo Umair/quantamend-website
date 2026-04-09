@@ -1,9 +1,32 @@
-const footerLinks = [
-  { href: "#services", label: "Services" },
-  { href: "#about", label: "About" },
-  { href: "#process", label: "Process" },
-  { href: "#testimonials", label: "Testimonials" },
-  { href: "#booking", label: "Contact" },
+const footerSections = [
+  {
+    title: "Services",
+    links: [
+      { label: "AI Automation", href: "#services" },
+      { label: "Software Development", href: "#services" },
+      { label: "Mobile Apps", href: "#services" },
+      { label: "UI/UX Design", href: "#services" },
+      { label: "Cloud & DevOps", href: "#services" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About", href: "#about" },
+      { label: "Process", href: "#process" },
+      { label: "Clients", href: "#testimonials" },
+      { label: "Contact", href: "#booking" },
+    ],
+  },
+  {
+    title: "Industries",
+    links: [
+      { label: "Fintech", href: "#industries" },
+      { label: "Healthcare", href: "#industries" },
+      { label: "E-commerce", href: "#industries" },
+      { label: "SaaS", href: "#industries" },
+    ],
+  },
 ];
 
 function XIcon({ size = 16 }: { size?: number }) {
@@ -32,72 +55,78 @@ function GitHubIcon({ size = 16 }: { size?: number }) {
 
 const socials = [
   { icon: XIcon, href: "https://x.com/quantamend", label: "X / Twitter" },
-  {
-    icon: LinkedInIcon,
-    href: "https://linkedin.com/company/quantamend",
-    label: "LinkedIn",
-  },
-  {
-    icon: GitHubIcon,
-    href: "https://github.com/quantamend",
-    label: "GitHub",
-  },
+  { icon: LinkedInIcon, href: "https://linkedin.com/company/quantamend", label: "LinkedIn" },
+  { icon: GitHubIcon, href: "https://github.com/quantamend", label: "GitHub" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-border/50 py-16 px-6">
-      {/* Gradient line at top */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 max-w-lg h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
-
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-10">
-          {/* Brand */}
-          <div className="text-center md:text-left">
-            <a href="#" className="text-xl font-bold tracking-tight inline-block">
-              <span className="gradient-text">Quanta</span>
-              <span className="text-foreground">Mend</span>
+    <footer className="border-t border-border">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Main footer */}
+        <div className="py-16 grid grid-cols-2 md:grid-cols-5 gap-10">
+          {/* Brand column */}
+          <div className="col-span-2">
+            <a href="#" className="text-xl font-bold tracking-tight flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-teal-400 flex items-center justify-center text-background text-sm font-black">
+                Q
+              </div>
+              <span>
+                <span className="text-accent">Quanta</span>
+                <span className="text-foreground">Mend</span>
+              </span>
             </a>
-            <p className="text-sm text-muted mt-2 max-w-xs">
-              AI-driven software development &amp; digital growth agency.
+            <p className="text-sm text-muted max-w-xs mb-6 leading-relaxed">
+              AI-driven software development and digital growth agency. We build
+              dynamic tech architectures for modern businesses.
             </p>
+            <div className="flex items-center gap-3">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="w-9 h-9 rounded-lg bg-surface-light border border-border flex items-center justify-center text-muted hover:text-accent hover:border-accent/30 transition-all"
+                >
+                  <s.icon size={15} />
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Nav links */}
-          <nav className="flex flex-wrap items-center justify-center gap-8">
-            {footerLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm text-muted hover:text-foreground transition-colors duration-300"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          {/* Socials */}
-          <div className="flex items-center gap-3">
-            {socials.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={s.label}
-                className="w-10 h-10 rounded-full glass flex items-center justify-center text-muted hover:text-foreground hover:border-accent/40 transition-all duration-300 hover:bg-accent/10"
-              >
-                <s.icon size={16} />
-              </a>
-            ))}
-          </div>
+          {/* Link columns */}
+          {footerSections.map((section) => (
+            <div key={section.title}>
+              <h4 className="text-sm font-semibold text-foreground mb-4">
+                {section.title}
+              </h4>
+              <ul className="space-y-2.5">
+                {section.links.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-sm text-muted hover:text-foreground transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-border/30 text-center">
+        {/* Bottom bar */}
+        <div className="py-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted/60">
-            &copy; {new Date().getFullYear()} QuantaMend. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} QuantaMend. All rights reserved.
           </p>
+          <div className="flex items-center gap-6">
+            <a href="#" className="text-xs text-muted/60 hover:text-muted transition-colors">Privacy Policy</a>
+            <a href="#" className="text-xs text-muted/60 hover:text-muted transition-colors">Terms of Service</a>
+          </div>
         </div>
       </div>
     </footer>
