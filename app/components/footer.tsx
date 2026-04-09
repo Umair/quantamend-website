@@ -46,32 +46,38 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border py-12 px-6">
+    <footer className="relative border-t border-border/50 py-16 px-6">
+      {/* Gradient line at top */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 max-w-lg h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          <div>
-            <a href="#" className="text-lg font-bold tracking-tight">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+          {/* Brand */}
+          <div className="text-center md:text-left">
+            <a href="#" className="text-xl font-bold tracking-tight inline-block">
               <span className="gradient-text">Quanta</span>
               <span className="text-foreground">Mend</span>
             </a>
-            <p className="text-xs text-muted mt-1">
-              AI-driven software development &amp; digital growth.
+            <p className="text-sm text-muted mt-2 max-w-xs">
+              AI-driven software development &amp; digital growth agency.
             </p>
           </div>
 
-          <nav className="flex flex-wrap items-center justify-center gap-6">
+          {/* Nav links */}
+          <nav className="flex flex-wrap items-center justify-center gap-8">
             {footerLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-muted hover:text-foreground transition-colors"
+                className="text-sm text-muted hover:text-foreground transition-colors duration-300"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          <div className="flex items-center gap-4">
+          {/* Socials */}
+          <div className="flex items-center gap-3">
             {socials.map((s) => (
               <a
                 key={s.label}
@@ -79,7 +85,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted hover:text-foreground hover:border-accent/40 transition-all"
+                className="w-10 h-10 rounded-full glass flex items-center justify-center text-muted hover:text-foreground hover:border-accent/40 transition-all duration-300 hover:bg-accent/10"
               >
                 <s.icon size={16} />
               </a>
@@ -87,8 +93,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-border text-center">
-          <p className="text-xs text-muted">
+        <div className="mt-12 pt-8 border-t border-border/30 text-center">
+          <p className="text-xs text-muted/60">
             &copy; {new Date().getFullYear()} QuantaMend. All rights
             reserved.
           </p>
