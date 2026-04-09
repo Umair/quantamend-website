@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="qg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="qg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  <!-- Outer ring -->
+  <circle cx="24" cy="22" r="17" stroke="url(#qg1)" stroke-width="2.5" fill="none" opacity="0.9"/>
+  <!-- Inner orbital paths -->
+  <ellipse cx="24" cy="22" rx="11" ry="4.5" stroke="url(#qg2)" stroke-width="1.5" fill="none" opacity="0.6" transform="rotate(-30 24 22)"/>
+  <ellipse cx="24" cy="22" rx="11" ry="4.5" stroke="url(#qg2)" stroke-width="1.5" fill="none" opacity="0.6" transform="rotate(30 24 22)"/>
+  <!-- Core nucleus -->
+  <circle cx="24" cy="22" r="4" fill="url(#qg2)"/>
+  <circle cx="24" cy="22" r="2" fill="#ffffff" opacity="0.9"/>
+  <!-- Electron dots -->
+  <circle cx="11" cy="14" r="2" fill="#06b6d4"/>
+  <circle cx="37" cy="14" r="2" fill="#8b5cf6"/>
+  <circle cx="24" cy="38" r="2" fill="#06b6d4"/>
+  <!-- Tail of Q -->
+  <line x1="32" y1="32" x2="40" y2="42" stroke="url(#qg2)" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
