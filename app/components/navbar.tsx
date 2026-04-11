@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+
 const navLinks = [
-  { href: "#services", label: "Services" },
-  { href: "#industries", label: "Industries" },
+  { href: "#systems", label: "Systems" },
+  { href: "#how-it-works", label: "How It Works" },
+  { href: "#results", label: "Results" },
   { href: "#about", label: "About" },
-  { href: "#process", label: "Process" },
-  { href: "#testimonials", label: "Clients" },
 ];
 
 export default function Navbar() {
@@ -22,26 +22,25 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`nav-animate fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`nav-animate fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-bg/80 backdrop-blur-2xl border-b border-border shadow-lg shadow-black/10"
-          : "bg-transparent"
+          ? "bg-white/90 backdrop-blur-xl border-b border-border shadow-[0_1px_3px_rgba(23,23,23,0.06)]"
+          : "bg-white/70 backdrop-blur-sm"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-[76px] flex items-center justify-between">
+      <div className="max-w-[1080px] mx-auto px-6 h-[72px] flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5 group">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/logo.svg"
+            src="/logo.png"
             alt="QuantaMend"
-            width={36}
-            height={36}
-            className="group-hover:scale-110 transition-transform duration-300"
+            width={32}
+            height={32}
+            className="group-hover:scale-105 transition-transform duration-200"
           />
-          <span className="text-xl font-bold tracking-tight">
-            <span className="text-cyan">Quanta</span>
-            <span className="text-foreground">Mend</span>
+          <span className="text-lg font-light tracking-tight text-heading">
+            Quanta<span className="text-purple">Mend</span>
           </span>
         </a>
 
@@ -51,7 +50,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="px-4 py-2 text-sm text-secondary hover:text-foreground transition-colors duration-200 rounded-lg hover:bg-white/[0.04]"
+              className="px-4 py-2 text-sm font-normal text-heading hover:text-purple transition-colors duration-200"
             >
               {link.label}
             </a>
@@ -59,14 +58,17 @@ export default function Navbar() {
         </div>
 
         <div className="hidden lg:flex items-center gap-3">
-          <a href="#booking" className="btn-primary px-7 py-2.5 text-sm">
-            <span>Get Started</span>
+          <a href="#cta" className="btn-primary text-sm py-2.5 px-5">
+            Activate Dead Leads
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="ml-1">
+              <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </a>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="lg:hidden text-foreground p-2 hover:bg-white/5 rounded-lg transition-colors"
+          className="lg:hidden text-heading p-2 hover:bg-gray-50 rounded-md transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -76,24 +78,24 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-bg/95 backdrop-blur-2xl border-t border-border">
-          <div className="px-6 py-6 flex flex-col gap-1">
+        <div className="lg:hidden bg-white border-t border-border">
+          <div className="px-6 py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-sm text-secondary hover:text-foreground py-3 px-4 rounded-lg hover:bg-white/[0.04] transition-colors"
+                className="text-sm text-heading hover:text-purple py-3 px-3 rounded-md hover:bg-gray-50 transition-colors"
               >
                 {link.label}
               </a>
             ))}
             <a
-              href="#booking"
+              href="#cta"
               onClick={() => setMobileOpen(false)}
-              className="mt-3 btn-primary px-5 py-3 text-sm text-center"
+              className="mt-3 btn-primary text-sm text-center justify-center py-3"
             >
-              <span>Get Started</span>
+              Activate Dead Leads →
             </a>
           </div>
         </div>

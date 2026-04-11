@@ -1,30 +1,26 @@
 const footerSections = [
   {
-    title: "Services",
+    title: "AI Systems",
     links: [
-      { label: "Generative AI", href: "#services" },
-      { label: "Custom Software", href: "#services" },
-      { label: "Mobile Apps", href: "#services" },
-      { label: "UI/UX Design", href: "#services" },
-      { label: "Cloud & DevOps", href: "#services" },
+      { label: "Dead Lead Pipeline", href: "#systems" },
+      { label: "Voice Receptionist", href: "#systems" },
+      { label: "Multilingual Concierge", href: "#systems" },
     ],
   },
   {
     title: "Company",
     links: [
       { label: "About", href: "#about" },
-      { label: "Process", href: "#process" },
-      { label: "Clients", href: "#testimonials" },
-      { label: "Contact", href: "#booking" },
+      { label: "Results", href: "#results" },
+      { label: "How It Works", href: "#how-it-works" },
+      { label: "Contact", href: "#cta" },
     ],
   },
   {
-    title: "Industries",
+    title: "Legal",
     links: [
-      { label: "Fintech", href: "#industries" },
-      { label: "Healthcare", href: "#industries" },
-      { label: "E-commerce", href: "#industries" },
-      { label: "SaaS", href: "#industries" },
+      { label: "Privacy Policy", href: "#" },
+      { label: "Terms of Service", href: "#" },
     ],
   },
 ];
@@ -45,14 +41,6 @@ function LinkedInIcon({ size = 16 }: { size?: number }) {
   );
 }
 
-function GitHubIcon({ size = 16 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-    </svg>
-  );
-}
-
 const socials = [
   { icon: XIcon, href: "https://x.com/quantamend", label: "X / Twitter" },
   {
@@ -60,45 +48,34 @@ const socials = [
     href: "https://linkedin.com/company/quantamend",
     label: "LinkedIn",
   },
-  {
-    icon: GitHubIcon,
-    href: "https://github.com/quantamend",
-    label: "GitHub",
-  },
 ];
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-border">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan/20 to-transparent" />
-
-      <div className="max-w-7xl mx-auto px-6">
+    <footer className="border-t border-border bg-white">
+      <div className="max-w-[1080px] mx-auto px-6">
         {/* Main footer */}
-        <div className="py-20 grid grid-cols-2 md:grid-cols-5 gap-10 lg:gap-16">
+        <div className="py-16 grid grid-cols-2 md:grid-cols-5 gap-10 lg:gap-16">
           {/* Brand column */}
           <div className="col-span-2">
-            <a
-              href="#"
-              className="flex items-center gap-2.5 mb-5 group"
-            >
+            <a href="#" className="flex items-center gap-2.5 mb-4 group">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/logo.svg"
+                src="/logo.png"
                 alt="QuantaMend"
-                width={32}
-                height={32}
-                className="group-hover:scale-110 transition-transform duration-300"
+                width={28}
+                height={28}
+                className="group-hover:scale-105 transition-transform duration-200"
               />
-              <span className="text-xl font-bold tracking-tight">
-                <span className="text-cyan">Quanta</span>
-                <span className="text-foreground">Mend</span>
+              <span className="text-lg font-light tracking-tight text-heading">
+                Quanta<span className="text-purple">Mend</span>
               </span>
             </a>
-            <p className="text-sm text-secondary max-w-xs mb-6 leading-relaxed">
-              AI-driven software development and digital growth agency. We build
-              dynamic tech architectures for modern businesses.
+            <p className="text-sm text-body max-w-xs mb-5 leading-relaxed font-light">
+              AI operations infrastructure for high-revenue practices. We build
+              the systems that book appointments while you sleep.
             </p>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               {socials.map((s) => (
                 <a
                   key={s.label}
@@ -106,9 +83,9 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-10 h-10 rounded-xl bg-surface border border-border flex items-center justify-center text-muted hover:text-cyan hover:border-cyan/30 hover:bg-cyan/5 transition-all duration-300"
+                  className="w-9 h-9 rounded-md border border-border flex items-center justify-center text-body hover:text-purple hover:border-purple/30 transition-all duration-200"
                 >
-                  <s.icon size={15} />
+                  <s.icon size={14} />
                 </a>
               ))}
             </div>
@@ -117,15 +94,15 @@ export default function Footer() {
           {/* Link columns */}
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h4 className="text-sm font-semibold text-foreground mb-5">
+              <h4 className="text-sm font-medium text-heading mb-4">
                 {section.title}
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 {section.links.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-sm text-muted hover:text-secondary transition-colors duration-200"
+                      className="text-sm text-body hover:text-purple transition-colors duration-200 font-light"
                     >
                       {link.label}
                     </a>
@@ -137,24 +114,13 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="py-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted/50">
+        <div className="py-5 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-body/50 font-light">
             &copy; {new Date().getFullYear()} QuantaMend. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
-            <a
-              href="#"
-              className="text-xs text-muted/50 hover:text-muted transition-colors"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="#"
-              className="text-xs text-muted/50 hover:text-muted transition-colors"
-            >
-              Terms of Service
-            </a>
-          </div>
+          <p className="text-xs text-body/40 font-light">
+            AI systems for practices that refuse to leave revenue on the table.
+          </p>
         </div>
       </div>
     </footer>

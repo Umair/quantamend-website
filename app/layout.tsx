@@ -1,29 +1,31 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Source_Code_Pro } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const sourceCodePro = Source_Code_Pro({
+  variable: "--font-source-code",
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "QuantaMend — AI-Driven Software Development Agency",
+  title: "QuantaMend — AI Operations & Automation for High-Revenue Practices",
   description:
-    "QuantaMend is a premium software development and digital growth agency specializing in AI-driven automation, robust backend engineering, and high-conversion digital marketing.",
+    "QuantaMend builds AI reactivation pipelines, voice receptionists, and multilingual concierge systems that book paying appointments for MedSpas, dental clinics, real estate, and high-revenue local businesses. Risk-free 100-lead pilot.",
   openGraph: {
-    title: "QuantaMend — AI-Driven Software Development Agency",
+    title: "QuantaMend — AI Operations & Automation for High-Revenue Practices",
     description:
-      "We build dynamic tech architectures that adapt to the fast-paced demands of modern startups and established enterprises.",
+      "Your past clients are worth $127,000. Our AI reactivation engine texts dormant leads, handles objections, and books paying appointments — automatically. Free 100-lead pilot.",
     type: "website",
   },
   icons: {
-    icon: "/logo.svg",
+    icon: "/logo.png",
   },
 };
 
@@ -35,9 +37,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${sourceCodePro.variable}`}
     >
-      <body className="min-h-full flex flex-col bg-bg text-foreground overflow-x-hidden">
+      <body className="min-h-screen font-sans antialiased">
         {children}
       </body>
     </html>

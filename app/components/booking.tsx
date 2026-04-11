@@ -1,83 +1,72 @@
 "use client";
 
-import { Calendar, Mail, ArrowRight, MessageSquare } from "lucide-react";
+import { ArrowRight, Calendar, Zap } from "lucide-react";
 import { useAnimate } from "./use-animate";
 
-export default function Booking() {
+export default function DarkCta() {
   const calUrl = process.env.NEXT_PUBLIC_CAL_BOOKING_URL;
   const { ref, visible } = useAnimate();
 
   return (
-    <section id="booking" className="relative py-28 lg:py-36 px-6 section-alt">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="glow-orb w-[700px] h-[700px] bg-cyan/[0.06] top-[-200px] left-[50%] translate-x-[-50%]" />
-      </div>
+    <section id="cta" className="section-dark py-24 lg:py-32 px-6 relative overflow-hidden">
+      {/* Decorative gradient */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-purple/20 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-ruby/10 to-transparent rounded-full blur-3xl pointer-events-none" />
 
-      <div ref={ref} className="max-w-7xl mx-auto relative z-10">
-        <div className="relative overflow-hidden rounded-3xl border border-border">
-          {/* Background gradient mesh */}
-          <div className="absolute inset-0 bg-gradient-to-br from-surface via-bg to-surface" />
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan/[0.06] rounded-full blur-[120px] pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-violet/[0.06] rounded-full blur-[120px] pointer-events-none" />
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan/30 to-transparent" />
-
-          <div
-            className={`relative z-10 p-12 sm:p-16 lg:p-24 reveal ${
-              visible ? "visible" : ""
-            }`}
-          >
-            <div className="max-w-2xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan/10 text-cyan text-sm font-medium border border-cyan/20 mb-8">
-                <MessageSquare size={14} />
-                Free Consultation
-              </div>
-
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-[1.1]">
-                Let&apos;s Build Something{" "}
-                <span className="gradient-text">Exceptional</span>
-              </h2>
-              <p className="text-secondary text-lg max-w-lg mx-auto mb-12 leading-relaxed">
-                Schedule a free 30-minute discovery call. We&apos;ll discuss
-                your project, map out the architecture, and give you a clear
-                path forward.
-              </p>
-
-              {calUrl ? (
-                <div className="rounded-2xl overflow-hidden border border-border bg-bg-deep">
-                  <iframe
-                    src={calUrl}
-                    className="w-full min-h-[600px] border-0"
-                    title="Book a call with QuantaMend"
-                  />
-                </div>
-              ) : (
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <a
-                    href="https://calendar.google.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary px-10 py-4.5 text-base flex items-center gap-3 group"
-                  >
-                    <span className="flex items-center gap-3">
-                      <Calendar size={18} />
-                      Schedule a Call
-                      <ArrowRight
-                        size={16}
-                        className="group-hover:translate-x-1 transition-transform"
-                      />
-                    </span>
-                  </a>
-                  <a
-                    href="mailto:hello@quantamend.com"
-                    className="btn-outline px-10 py-4.5 text-base flex items-center gap-3"
-                  >
-                    <Mail size={18} />
-                    hello@quantamend.com
-                  </a>
-                </div>
-              )}
+      <div ref={ref} className="max-w-[1080px] mx-auto relative z-10">
+        <div className={`max-w-2xl mx-auto text-center reveal ${visible ? "visible" : ""}`}>
+          <div className="inline-flex items-center gap-2 mb-8">
+            <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+              <Zap size={14} className="text-white" />
             </div>
+            <span className="text-white/60 text-sm font-normal">
+              Risk-Free Pilot Program
+            </span>
           </div>
+
+          <h2 className="text-white text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight mb-6" style={{ letterSpacing: "-0.96px", lineHeight: 1.15 }}>
+            100 Dead Leads.
+            <br />
+            Zero Risk.
+            <br />
+            Prove It Works — Free.
+          </h2>
+
+          <p className="text-white/60 text-lg font-light max-w-lg mx-auto mb-10 leading-relaxed">
+            Stop leaving revenue on the table. We&apos;ll run our AI
+            reactivation engine on 100 of your dormant leads at zero cost.
+            Booked appointments or you don&apos;t pay. Period.
+          </p>
+
+          {calUrl ? (
+            <div className="rounded-lg overflow-hidden border border-white/10 bg-white/5">
+              <iframe
+                src={calUrl}
+                className="w-full min-h-[600px] border-0"
+                title="Book a call with QuantaMend"
+              />
+            </div>
+          ) : (
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="https://calendar.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-white py-3.5 px-8 text-base"
+              >
+                <Zap size={16} />
+                Activate My Dead Leads — Free Pilot
+                <ArrowRight size={16} />
+              </a>
+              <a
+                href="mailto:hello@quantamend.com"
+                className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm font-normal"
+              >
+                <Calendar size={14} />
+                Or schedule a 15-minute strategy call
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -1,12 +1,12 @@
 import Navbar from "./components/navbar";
 import Hero from "./components/hero";
-import Services from "./components/services";
-import Industries from "./components/industries";
-import About from "./components/about";
-import Process from "./components/process";
-import TechStack from "./components/tech-stack";
+import SocialProof from "./components/social-proof";
+import Problem from "./components/problem";
+import AiSystems from "./components/ai-systems";
+import HowItWorks from "./components/how-it-works";
 import Testimonials from "./components/testimonials";
-import Booking from "./components/booking";
+import About from "./components/about";
+import DarkCta from "./components/booking";
 import Footer from "./components/footer";
 
 export default function Home() {
@@ -15,16 +15,15 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <SocialProof />
+        <Problem />
         <div className="section-divider" />
-        <Services />
-        <Industries />
+        <AiSystems />
         <div className="section-divider" />
-        <About />
-        <Process />
-        <TechStack />
-        <div className="section-divider" />
+        <HowItWorks />
         <Testimonials />
-        <Booking />
+        <About />
+        <DarkCta />
       </main>
       <Footer />
     </>
