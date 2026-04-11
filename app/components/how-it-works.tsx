@@ -58,10 +58,10 @@ export default function HowItWorks() {
               key={step.title}
               className={`relative reveal ${gridVisible ? "visible" : ""}`}
             >
-              {/* Connector line (desktop) */}
+              {/* Connector line between circles (desktop) */}
               {i < steps.length - 1 && (
-                <div className="hidden md:block absolute top-5 left-[calc(100%+4px)] w-[calc(100%-48px)] h-px">
-                  <div className="h-full border-t border-dashed border-purple/30" />
+                <div className="hidden md:block absolute top-[19px] left-[52px] right-[-20px] h-px z-0">
+                  <div className="h-full border-t-2 border-dashed border-purple/20" />
                 </div>
               )}
 
