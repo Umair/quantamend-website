@@ -1,55 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
 import { ArrowRight, Calendar, Zap } from "lucide-react";
 import { useAnimate } from "./use-animate";
 
 export default function DarkCta() {
-  const calLink = process.env.NEXT_PUBLIC_CAL_LINK;
+  const calLink = process.env.NEXT_PUBLIC_CAL_LINK || "https://cal.com";
   const { ref, visible } = useAnimate();
-
-  // Load Cal.com embed script
-  useEffect(() => {
-    if (!calLink) return;
-
-    // Load the Cal.com embed script
-    const script = document.createElement("script");
-    script.src = "https://app.cal.com/embed/embed.js";
-    script.async = true;
-    document.head.appendChild(script);
-
-    script.onload = () => {
-      // @ts-expect-error Cal is injected by the embed script
-      if (window.Cal) {
-        // @ts-expect-error Cal is injected by the embed script
-        window.Cal("init", {
-          origin: "https://app.cal.com",
-        });
-
-        // @ts-expect-error Cal is injected by the embed script
-        window.Cal("inline", {
-          elementOrSelector: "#cal-embed",
-          calLink: calLink,
-          layout: "month_view",
-          config: {
-            theme: "dark",
-          },
-        });
-
-        // @ts-expect-error Cal is injected by the embed script
-        window.Cal("ui", {
-          theme: "dark",
-          styles: {
-            branding: { brandColor: "#533afd" },
-          },
-        });
-      }
-    };
-
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, [calLink]);
 
   return (
     <section id="cta" className="section-dark py-24 lg:py-32 px-6 relative overflow-hidden">
@@ -82,31 +38,27 @@ export default function DarkCta() {
             Booked appointments or you don&apos;t pay. Period.
           </p>
 
-          {calLink ? (
-            <div
-              id="cal-embed"
-              className="rounded-lg overflow-hidden border border-white/10 bg-white/5"
-              style={{ width: "100%", minHeight: "600px" }}
-            />
-          ) : (
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="mailto:hello@quantamend.com"
-                className="btn-white py-3.5 px-8 text-base"
-              >
-                <Zap size={16} />
-                Activate My Dead Leads — Free Pilot
-                <ArrowRight size={16} />
-              </a>
-              <a
-                href="mailto:hello@quantamend.com"
-                className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm font-normal"
-              >
-                <Calendar size={14} />
-                Or schedule a 15-minute strategy call
-              </a>
-            </div>
-          )}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href={calLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-white py-3.5 px-8 text-base"
+            >
+              <Zap size={16} />
+              Activate My Dead Leads — Free Pilot
+              <ArrowRight size={16} />
+            </a>
+            <a
+              href={calLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm font-normal"
+            >
+              <Calendar size={14} />
+              Or schedule a 15-minute strategy call
+            </a>
+          </div>
         </div>
       </div>
     </section>
