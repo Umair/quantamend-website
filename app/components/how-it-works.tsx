@@ -60,15 +60,15 @@ export default function HowItWorks() {
             >
               {/* Connector line between circles (desktop) */}
               {i < steps.length - 1 && (
-                <div className="hidden md:block absolute top-[19px] left-[52px] right-[-20px] h-px z-0">
+                <div className="hidden md:block absolute top-[19px] left-[40px] right-[-32px] h-px z-0">
                   <div className="h-full border-t-2 border-dashed border-purple/20" />
                 </div>
               )}
 
-              <div className="flex flex-col">
+              <div className="flex flex-col relative z-10">
                 <div className="flex items-center gap-4 mb-5">
                   <div className="step-number">{step.number}</div>
-                  <h3 className="sub-heading-lg">{step.title}</h3>
+                  <h3 className="sub-heading-lg bg-white pr-4">{step.title}</h3>
                 </div>
                 <p className="text-body text-[15px] leading-relaxed mb-4 pl-14">
                   {step.description}
