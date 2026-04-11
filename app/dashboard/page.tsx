@@ -270,7 +270,7 @@ export default function DashboardPage() {
               Leads Dashboard
             </h1>
             <p className="text-xs text-muted mt-0.5">
-              MorphicStack Lead Generation Pipeline
+              QuantaMend Lead Generation Pipeline
             </p>
           </div>
           <div className="flex items-center gap-3">
