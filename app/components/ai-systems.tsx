@@ -136,7 +136,7 @@ export default function AiSystems() {
           className="grid md:grid-cols-2 gap-6 stagger-children"
         >
           {/* Voice Receptionist */}
-          <div className={`card p-8 reveal ${gridVisible ? "visible" : ""}`}>
+          <div className={`card-featured p-8 reveal ${gridVisible ? "visible" : ""}`}>
             <div className="w-12 h-12 rounded-lg bg-ruby/[0.08] flex items-center justify-center mb-6">
               <Phone size={22} className="text-ruby" />
             </div>
@@ -169,7 +169,7 @@ export default function AiSystems() {
           </div>
 
           {/* Multilingual Concierge */}
-          <div className={`card p-8 reveal ${gridVisible ? "visible" : ""}`}>
+          <div className={`card-featured p-8 reveal ${gridVisible ? "visible" : ""}`}>
             <div className="w-12 h-12 rounded-lg bg-magenta/[0.08] flex items-center justify-center mb-6">
               <Globe size={22} className="text-magenta" />
             </div>

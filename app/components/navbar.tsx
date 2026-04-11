@@ -35,8 +35,8 @@ export default function Navbar() {
           <img
             src="/logo.png"
             alt="QuantaMend"
-            width={32}
-            height={32}
+            width={40}
+            height={40}
             className="group-hover:scale-105 transition-transform duration-200"
           />
           <span className="text-lg font-light tracking-tight text-heading">
@@ -59,7 +59,7 @@ export default function Navbar() {
 
         <div className="hidden lg:flex items-center gap-3">
           <a href="#cta" className="btn-primary text-sm py-2.5 px-5">
-            Activate Dead Leads
+            Book a Free Pilot
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="ml-1">
               <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -95,7 +95,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
               className="mt-3 btn-primary text-sm text-center justify-center py-3"
             >
-              Activate Dead Leads →
+              Book a Free Pilot →
             </a>
           </div>
         </div>

@@ -1,11 +1,55 @@
 "use client";
 
+import { useEffect } from "react";
 import { ArrowRight, Calendar, Zap } from "lucide-react";
 import { useAnimate } from "./use-animate";
 
 export default function DarkCta() {
-  const calUrl = process.env.NEXT_PUBLIC_CAL_BOOKING_URL;
+  const calLink = process.env.NEXT_PUBLIC_CAL_LINK;
   const { ref, visible } = useAnimate();
+
+  // Load Cal.com embed script
+  useEffect(() => {
+    if (!calLink) return;
+
+    // Load the Cal.com embed script
+    const script = document.createElement("script");
+    script.src = "https://app.cal.com/embed/embed.js";
+    script.async = true;
+    document.head.appendChild(script);
+
+    script.onload = () => {
+      // @ts-expect-error Cal is injected by the embed script
+      if (window.Cal) {
+        // @ts-expect-error Cal is injected by the embed script
+        window.Cal("init", {
+          origin: "https://app.cal.com",
+        });
+
+        // @ts-expect-error Cal is injected by the embed script
+        window.Cal("inline", {
+          elementOrSelector: "#cal-embed",
+          calLink: calLink,
+          layout: "month_view",
+          config: {
+            theme: "dark",
+          },
+        });
+
+        // @ts-expect-error Cal is injected by the embed script
+        window.Cal("ui", {
+          theme: "dark",
+          styles: {
+            branding: { brandColor: "#533afd" },
+          },
+        });
+      }
+    };
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, [calLink]);
 
   return (
     <section id="cta" className="section-dark py-24 lg:py-32 px-6 relative overflow-hidden">
@@ -38,20 +82,16 @@ export default function DarkCta() {
             Booked appointments or you don&apos;t pay. Period.
           </p>
 
-          {calUrl ? (
-            <div className="rounded-lg overflow-hidden border border-white/10 bg-white/5">
-              <iframe
-                src={calUrl}
-                className="w-full min-h-[600px] border-0"
-                title="Book a call with QuantaMend"
-              />
-            </div>
+          {calLink ? (
+            <div
+              id="cal-embed"
+              className="rounded-lg overflow-hidden border border-white/10 bg-white/5"
+              style={{ width: "100%", minHeight: "600px" }}
+            />
           ) : (
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="https://calendar.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:hello@quantamend.com"
                 className="btn-white py-3.5 px-8 text-base"
               >
                 <Zap size={16} />

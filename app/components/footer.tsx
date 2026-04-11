@@ -63,8 +63,8 @@ export default function Footer() {
               <img
                 src="/logo.png"
                 alt="QuantaMend"
-                width={28}
-                height={28}
+                width={36}
+                height={36}
                 className="group-hover:scale-105 transition-transform duration-200"
               />
               <span className="text-lg font-light tracking-tight text-heading">
