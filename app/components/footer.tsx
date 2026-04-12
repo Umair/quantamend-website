@@ -13,6 +13,7 @@ const footerSections = [
       { label: "About", href: "#about" },
       { label: "Results", href: "#results" },
       { label: "How It Works", href: "#how-it-works" },
+      { label: "Blog", href: "/blog" },
       { label: "Contact", href: "#cta" },
     ],
   },

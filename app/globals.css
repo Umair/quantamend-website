@@ -422,3 +422,85 @@ body {
     letter-spacing: -0.26px;
   }
 }
+
+/* ===== ARTICLE PROSE — STRIPE STYLE ===== */
+.prose-stripe {
+  color: var(--label);
+  font-size: 1rem;
+  line-height: 1.75;
+  font-weight: 300;
+}
+.prose-stripe h2 {
+  font-size: 1.625rem;
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.26px;
+  color: var(--heading);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+.prose-stripe h3 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.16px;
+  color: var(--heading);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.prose-stripe p {
+  margin-bottom: 1.25rem;
+  color: var(--label);
+}
+.prose-stripe strong {
+  font-weight: 500;
+  color: var(--heading);
+}
+.prose-stripe ul,
+.prose-stripe ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+.prose-stripe ul {
+  list-style-type: disc;
+}
+.prose-stripe ol {
+  list-style-type: decimal;
+}
+.prose-stripe li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+}
+.prose-stripe blockquote {
+  border-left: 3px solid var(--stripe-purple);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  background: rgba(83, 58, 253, 0.03);
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+  color: var(--heading);
+}
+.prose-stripe a {
+  color: var(--stripe-purple);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose-stripe a:hover {
+  color: var(--stripe-purple-hover);
+}
+.prose-stripe table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+.prose-stripe th,
+.prose-stripe td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.prose-stripe th {
+  font-weight: 500;
+  color: var(--heading);
+  font-size: 0.875rem;
+}
