@@ -41,7 +41,7 @@ const testimonials = [
   },
   {
     quote:
-      "We run a 6-location veterinary group. QuantaMend's voice system handles overflow calls across all locations and books directly into our PMS. Game changer.",
+      "We run a 6-location veterinary group. QuantaMend's voice system handles overflow calls across all locations and books directly into our PMS. Incredible.",
     author: "Sarah Mitchell",
     role: "COO",
     company: "PetCare Veterinary Group",

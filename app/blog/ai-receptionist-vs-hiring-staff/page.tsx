@@ -39,7 +39,7 @@ export default function AiVsHiringArticle() {
         <p className="body-large">
           Your practice needs more phone coverage. The obvious solution is hiring
           another receptionist. But is it really the best investment? Let&apos;s
-          compare the true total cost — including the hidden expenses nobody
+          compare the true total cost, including the hidden expenses nobody
           talks about.
         </p>
       </header>
@@ -48,7 +48,7 @@ export default function AiVsHiringArticle() {
         <p className="text-heading text-sm font-medium mb-2">Key Takeaway</p>
         <p className="text-label text-[15px] leading-relaxed">
           A full-time front desk employee costs $52,000–$68,000/year when you
-          include benefits, training, and turnover costs — and still can&apos;t
+          include benefits, training, and turnover costs, and still can&apos;t
           work nights or weekends. An AI voice agent costs a fraction of that
           and operates 24/7 without sick days, PTO, or overtime.
         </p>
@@ -102,7 +102,7 @@ export default function AiVsHiringArticle() {
           Here&apos;s the number that kills practice budgets: medical
           receptionist turnover averages <strong>30–40% annually</strong>. That
           means there&apos;s a 1-in-3 chance your new hire leaves within 12
-          months — and you restart the entire recruitment, training, and
+          months, and you restart the entire recruitment, training, and
           ramp-up cycle.
         </p>
         <p>
@@ -224,8 +224,8 @@ export default function AiVsHiringArticle() {
 
         <h2>The Verdict</h2>
         <p>
-          For pure phone coverage — answering calls, qualifying inquiries,
-          booking appointments, handling after-hours — an AI voice agent
+          For pure phone coverage, such as answering calls, qualifying inquiries,
+          booking appointments, handling after-hours, an AI voice agent
           delivers 4x the availability at one-third the cost, with zero
           turnover risk.
         </p>
@@ -241,7 +241,7 @@ export default function AiVsHiringArticle() {
           </p>
           <p className="text-label text-[15px] leading-relaxed mb-4">
             QuantaMend deploys custom AI voice agents that integrate with your
-            scheduling system and answer every call — 24/7. Book a strategy
+            scheduling system and answer every call, 24/7. Book a strategy
             call to see a live demo.
           </p>
           <a href="/#cta" className="btn-primary py-3 px-6 text-sm">

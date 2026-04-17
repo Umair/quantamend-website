@@ -38,8 +38,8 @@ export default function RoiArticle() {
         </h1>
         <p className="body-large">
           Every technology vendor promises &ldquo;incredible ROI.&rdquo; We&apos;re
-          going to show you the actual math — with real numbers from real
-          deployments — so you can make an informed decision about whether AI
+          going to show you the actual math, with real numbers from real
+          deployments, so you can make an informed decision about whether AI
           automation is worth the investment for your practice.
         </p>
       </header>
@@ -49,7 +49,7 @@ export default function RoiArticle() {
         <p className="text-label text-[15px] leading-relaxed">
           Across deployments in dental, MedSpa, chiropractic, and real estate
           verticals, AI automation systems deliver an average ROI of 8–14x in
-          the first year — driven by recovered revenue from dead leads, captured
+          the first year, driven by recovered revenue from dead leads, captured
           revenue from missed calls, and reduced operational costs from
           automated scheduling.
         </p>
@@ -143,7 +143,7 @@ export default function RoiArticle() {
         <p>
           For a practice with a 15% no-show rate on 50 appointments/week,
           reducing no-shows to 9% recaptures approximately 3 appointments/week
-          — that&apos;s $62,400/year in recovered production at $400/visit.
+          that&apos;s $62,400/year in recovered production at $400/visit.
         </p>
 
         <h3>Reduced Staff Overtime</h3>
@@ -159,7 +159,7 @@ export default function RoiArticle() {
           three revenue streams compound. The clients you reactivate today
           become repeat customers who call back in 3–6 months. The AI answers
           that return call, books the follow-up appointment, and sends the
-          confirmation — creating a self-reinforcing revenue cycle.
+          confirmation, creating a self-reinforcing revenue cycle.
         </p>
         <p>
           Year-one ROI of 8–14x is the floor, not the ceiling. By year two,
@@ -211,7 +211,7 @@ export default function RoiArticle() {
         </p>
         <p>
           Even if you discount these numbers by 50% for conservatism,
-          you&apos;re still looking at a 5.9x return — a $145,000 net gain
+          you&apos;re still looking at a 5.9x return: a $145,000 net gain
           on a sub-$30,000 investment.
         </p>
 
@@ -228,7 +228,7 @@ export default function RoiArticle() {
         </ul>
         <p>
           The ROI figures above assume a properly integrated, personalized AI
-          deployment — not a generic chatbot bolted onto your website.
+          deployment, not a generic chatbot bolted onto your website.
         </p>
 
         <h2>How to Evaluate AI Automation for Your Practice</h2>

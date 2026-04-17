@@ -47,7 +47,7 @@ const articles = [
   {
     slug: "multilingual-ai-untapped-revenue",
     title:
-      "The $2.3 Trillion Blind Spot: How Multilingual AI Unlocks Revenue from the Clients You're Accidentally Ignoring",
+      "The $2.3 Trillion Blind Spot: How Multilingual AI Captures Revenue from the Clients You're Accidentally Ignoring",
     excerpt:
       "67 million Americans speak a language other than English at home. If your phones can only handle English, you're leaving massive revenue on the table. Here's how AI solves this overnight.",
     category: "Growth Strategy",

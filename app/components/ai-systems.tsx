@@ -194,7 +194,7 @@ export default function AiSystems() {
             </ul>
             <div className="pt-5 border-t border-border">
               <span className="text-xs text-body">
-                Unlock revenue from{" "}
+                Capture revenue from{" "}
                 <span className="text-heading font-medium">100%</span> of your
                 market, not just English speakers
               </span>

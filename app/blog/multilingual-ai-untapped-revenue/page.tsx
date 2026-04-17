@@ -3,13 +3,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "The $2.3 Trillion Blind Spot: How Multilingual AI Unlocks Hidden Revenue | QuantaMend",
+    "The $2.3 Trillion Blind Spot: How Multilingual AI Captures Hidden Revenue | QuantaMend",
   description:
     "67 million Americans speak a non-English language at home. If your practice only handles English calls, you're losing revenue. Learn how multilingual AI concierge systems capture this untapped market.",
   keywords:
     "multilingual AI, multilingual customer service, Spanish speaking patients, bilingual receptionist, language barrier healthcare, multilingual booking system, AI translation",
   openGraph: {
-    title: "How Multilingual AI Unlocks Revenue You're Accidentally Ignoring",
+    title: "How Multilingual AI Captures Revenue You're Accidentally Ignoring",
     description:
       "67 million Americans speak a non-English language at home. Multilingual AI captures this market overnight.",
     type: "article",
@@ -33,12 +33,12 @@ export default function MultilingualArticle() {
           <span className="text-sm text-body">April 3, 2026</span>
         </div>
         <h1 className="display-large mb-6">
-          The $2.3 Trillion Blind Spot: How Multilingual AI Unlocks Revenue from
+          The $2.3 Trillion Blind Spot: How Multilingual AI Captures Revenue from
           the Clients You&apos;re Accidentally Ignoring
         </h1>
         <p className="body-large">
           If your phones can only handle English-speaking callers, you&apos;re
-          not serving 100% of your market. You&apos;re serving 78% of it — and
+          not serving 100% of your market. You&apos;re serving 78% of it, and
           handing the rest directly to any competitor who can say
           &ldquo;¿Cómo puedo ayudarle?&rdquo;
         </p>
@@ -50,7 +50,7 @@ export default function MultilingualArticle() {
           67.8 million U.S. residents speak a language other than English at
           home. Multilingual AI concierge systems detect the caller&apos;s
           language in real-time and handle service inquiries, pricing questions,
-          and booking flows in 30+ languages — expanding your addressable
+          and booking flows in 30+ languages, expanding your addressable
           market overnight with zero staffing changes.
         </p>
       </div>
@@ -62,15 +62,15 @@ export default function MultilingualArticle() {
         </p>
         <ul>
           <li><strong>67.8 million</strong> Americans speak a language other than English at home (U.S. Census Bureau, 2024)</li>
-          <li><strong>41.8 million</strong> native Spanish speakers in the U.S. — making America the second-largest Spanish-speaking country in the world after Mexico</li>
-          <li><strong>$2.3 trillion</strong> — the purchasing power of the U.S. Hispanic market alone</li>
+          <li><strong>41.8 million</strong> native Spanish speakers in the U.S., making America the second-largest Spanish-speaking country in the world after Mexico</li>
+          <li><strong>$2.3 trillion</strong>, the purchasing power of the U.S. Hispanic market alone</li>
           <li><strong>3.3 million</strong> Chinese speakers, <strong>1.8 million</strong> Vietnamese speakers, <strong>1.7 million</strong> Korean speakers in the U.S.</li>
         </ul>
         <p>
           These aren&apos;t theoretical prospects. They&apos;re people who live
           in your service area, search for businesses like yours on Google,
           and call your practice. The only question is whether they get a
-          seamless experience — or an awkward, frustrating one that sends them
+          seamless experience, or an awkward, frustrating one that sends them
           to a competitor who speaks their language.
         </p>
 
@@ -80,7 +80,7 @@ export default function MultilingualArticle() {
           medical and cosmetic services involve complex terminology, nuanced
           pricing discussions, and sensitive personal information. When a
           Spanish-speaking patient calls a MedSpa to ask about treatment
-          options, they need more than basic phrase translation — they need
+          options, they need more than basic phrase translation; they need
           someone who can explain procedures, discuss financing, and manage
           scheduling in their native language with confidence.
         </p>
@@ -102,7 +102,7 @@ export default function MultilingualArticle() {
           <li><strong>Limited to 1–2 additional languages</strong> (usually Spanish, sometimes Mandarin in certain markets)</li>
           <li><strong>Bilingual premium:</strong> Bilingual medical receptionists command $3,000–$8,000/year more than English-only counterparts</li>
           <li><strong>Availability gaps:</strong> Your bilingual staff member takes the same lunch breaks, vacations, and sick days as everyone else</li>
-          <li><strong>Scalability:</strong> Adding a third, fourth, or fifth language requires additional hires — each with a $45K+ annual cost</li>
+          <li><strong>Scalability:</strong> Adding a third, fourth, or fifth language requires additional hires, each with a $45K+ annual cost</li>
         </ul>
 
         <h2>How Multilingual AI Concierge Systems Work</h2>
@@ -122,7 +122,7 @@ export default function MultilingualArticle() {
           invisible and natural.
         </p>
 
-        <h3>2. Contextual Conversation — Not Word-by-Word Translation</h3>
+        <h3>2. Contextual Conversation, Not Word-by-Word Translation</h3>
         <p>
           The AI doesn&apos;t translate English scripts word-for-word into
           other languages (which produces stilted, unnatural conversations).
@@ -144,13 +144,13 @@ export default function MultilingualArticle() {
           <li>Insurance and payment questions</li>
         </ul>
 
-        <h3>4. 30+ Languages — Not Just Spanish</h3>
+        <h3>4. 30+ Languages, Not Just Spanish</h3>
         <p>
           While Spanish covers the largest non-English market in the U.S.,
           a single AI system simultaneously supports 30+ languages: Mandarin,
           Vietnamese, Korean, Tagalog, Arabic, Hindi, Portuguese, French,
           Russian, and more. You&apos;re not limited to your staff&apos;s
-          language skills — you serve your entire community.
+          language skills, you serve your entire community.
         </p>
 
         <h2>Real-World Impact: Case Study Data</h2>
@@ -162,7 +162,7 @@ export default function MultilingualArticle() {
           <li><strong>Spanish-speaking inquiry conversion:</strong> Up 3x from baseline (from ~12% to ~36%)</li>
           <li><strong>Total bookable market expansion:</strong> 15–25% increase in addressable patient base, depending on local demographics</li>
           <li><strong>Patient satisfaction (multilingual callers):</strong> 4.8/5.0 average rating vs. 3.2/5.0 with English-only staff handling non-English calls</li>
-          <li><strong>Referral rate from multilingual patients:</strong> 2.4x higher than English-speaking patients — because the positive experience is remarkable enough to share</li>
+          <li><strong>Referral rate from multilingual patients:</strong> 2.4x higher than English-speaking patients, because the positive experience is remarkable enough to share</li>
         </ul>
 
         <h2>The Competitive Moat</h2>
@@ -171,7 +171,7 @@ export default function MultilingualArticle() {
           <strong> multilingual capability is a defensible competitive
           advantage</strong>. In most local markets, the vast majority of
           practices still operate English-only phone lines. When you become
-          the practice that serves the entire community — in their language —
+          the practice that serves the entire community in their language,
           you don&apos;t just capture incremental revenue. You become the
           default choice for every non-English speaker in your service area.
         </p>
@@ -200,7 +200,7 @@ export default function MultilingualArticle() {
 
         <div className="offer-box mt-10">
           <p className="text-heading text-sm font-medium mb-2">
-            Serve Your Entire Market — In Their Language
+            Serve Your Entire Market In Their Language
           </p>
           <p className="text-label text-[15px] leading-relaxed mb-4">
             QuantaMend&apos;s multilingual AI concierge detects language in
