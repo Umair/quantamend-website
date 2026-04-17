@@ -36,13 +36,13 @@ export default function About() {
             <p className="body-large mb-5">
               QuantaMend isn&apos;t a prompt wrapper. We&apos;re a full-stack
               engineering team that builds custom AI integrations from the ground
-              up — CRM connectors, telephony pipelines, NLP engines, and
+              up, including CRM connectors, telephony pipelines, NLP engines, and
               scheduling APIs.
             </p>
             <p className="text-body leading-relaxed mb-8">
               Our background in web development, backend engineering, and cloud
               infrastructure is the reason our AI systems actually work in
-              production — at scale, around the clock, without breaking.
+              production at scale, around the clock, without breaking.
             </p>
 
             <a

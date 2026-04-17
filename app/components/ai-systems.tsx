@@ -145,7 +145,7 @@ export default function AiSystems() {
             </h3>
             <p className="text-body text-[15px] leading-relaxed mb-6">
               A custom AI voice agent that answers every call, qualifies the
-              inquiry, and books directly into your scheduling software — nights,
+              inquiry, and books directly into your scheduling software. Nights,
               weekends, holidays. Never miss a call again.
             </p>
             <ul className="space-y-3 mb-6">
@@ -179,7 +179,7 @@ export default function AiSystems() {
             <p className="text-body text-[15px] leading-relaxed mb-6">
               An AI system that detects the caller&apos;s language in real-time
               and handles complex service inquiries, pricing questions, and
-              booking flows in their native language — instantly.
+              booking flows in their native language, instantly.
             </p>
             <ul className="space-y-3 mb-6">
               {multilingualCapabilities.map((cap) => (

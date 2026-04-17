@@ -14,7 +14,7 @@ const testimonials = [
   },
   {
     quote:
-      "We were missing 40% of after-hours calls. Their AI receptionist now books an average of 12 new patient appointments per week — without adding staff.",
+      "We were missing 40% of after-hours calls. Their AI receptionist now books an average of 12 new patient appointments per week, without adding staff.",
     author: "James Whitfield",
     role: "Practice Manager",
     company: "Premier Dental Group",
@@ -78,7 +78,7 @@ export default function Testimonials() {
             Real Results.
           </h2>
           <p className="body-large max-w-2xl mx-auto">
-            Don&apos;t take our word for it — hear from practice owners and
+            Don&apos;t take our word for it. Hear from practice owners and
             operators across every vertical.
           </p>
         </div>

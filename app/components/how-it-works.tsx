@@ -17,7 +17,7 @@ const steps = [
     number: "2",
     title: "Activate",
     description:
-      "Your AI systems go live. Dead leads get reactivated, calls get answered, inquiries get translated — all automatically.",
+      "Your AI systems go live. Dead leads get reactivated, calls get answered, and inquiries get translated.",
     highlight: "Fully automated",
   },
   {

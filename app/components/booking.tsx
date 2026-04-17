@@ -29,7 +29,7 @@ export default function DarkCta() {
             <br />
             Zero Risk.
             <br />
-            Prove It Works — Free.
+            Prove It Works For Free.
           </h2>
 
           <p className="text-white/60 text-lg font-light max-w-lg mx-auto mb-10 leading-relaxed">
@@ -46,7 +46,7 @@ export default function DarkCta() {
               className="btn-white py-3.5 px-8 text-base"
             >
               <Zap size={16} />
-              Activate My Dead Leads — Free Pilot
+              Activate My Dead Leads (Free Pilot)
               <ArrowRight size={16} />
             </a>
             <a

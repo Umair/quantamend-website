@@ -15,13 +15,13 @@ const sourceCodePro = Source_Code_Pro({
 });
 
 export const metadata: Metadata = {
-  title: "QuantaMend — AI Operations & Automation for High-Revenue Practices",
+  title: "QuantaMend | AI Operations & Automation for High-Revenue Practices",
   description:
     "QuantaMend builds AI reactivation pipelines, voice receptionists, and multilingual concierge systems that book paying appointments for MedSpas, dental clinics, real estate, and high-revenue local businesses. Risk-free 100-lead pilot.",
   openGraph: {
-    title: "QuantaMend — AI Operations & Automation for High-Revenue Practices",
+    title: "QuantaMend | AI Operations & Automation for High-Revenue Practices",
     description:
-      "Your past clients are worth $127,000. Our AI reactivation engine texts dormant leads, handles objections, and books paying appointments — automatically. Free 100-lead pilot.",
+      "Your past clients are worth $127,000. Our AI reactivation engine texts dormant leads, handles objections, and books paying appointments, all automatically. Free 100-lead pilot.",
     type: "website",
   },
   icons: {

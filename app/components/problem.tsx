@@ -16,7 +16,7 @@ const painPoints = [
     icon: DatabaseZap,
     title: "Your CRM Is a Graveyard",
     description:
-      "Thousands of past clients sitting in your database, untouched. They already trusted you once — but nobody's following up.",
+      "Thousands of past clients sitting in your database, untouched. They already trusted you once, but nobody's following up.",
     stat: "2,000+",
     statLabel: "dormant leads avg.",
   },

@@ -24,7 +24,7 @@ export default function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75" />
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-success" />
               </span>
-              Risk-Free AI Pilot — 100 Leads, $0 Upfront
+              Risk-Free AI Pilot: 100 Leads, $0 Upfront
             </span>
           </div>
 
@@ -35,13 +35,13 @@ export default function Hero() {
             Worth{" "}
             <span className="text-purple">$127,000.</span>
             <br />
-            We&apos;ll Prove It — Free.
+            We&apos;ll Prove It. Free.
           </h1>
 
           {/* Sub-headline */}
           <p className="hero-animate hero-d3 body-large max-w-2xl mb-12">
             QuantaMend&apos;s AI reactivation engine texts your dormant leads,
-            handles objections, and books paying appointments — automatically.
+            handles objections, and books paying appointments, all automatically.
             We run it on 100 of your dead leads at zero cost. You only pay
             if it works.
           </p>

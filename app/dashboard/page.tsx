@@ -294,7 +294,7 @@ export default function DashboardPage() {
       <main className="max-w-screen-2xl mx-auto px-6 py-6 space-y-6">
         {error && (
           <div className="rounded-lg bg-red-500/10 border border-red-500/20 p-4 text-sm text-red-300">
-            {error} — Make sure the leadgen API is running on port 3200.
+            {error} - Make sure the leadgen API is running on port 3200.
           </div>
         )}
 
@@ -538,7 +538,7 @@ export default function DashboardPage() {
                             </a>
                           )}
                           {!lead.phone && !lead.email && (
-                            <span className="text-muted/40 text-xs">—</span>
+                            <span className="text-muted/40 text-xs">-</span>
                           )}
                         </div>
                       </td>

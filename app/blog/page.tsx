@@ -2,11 +2,11 @@ import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog — QuantaMend | AI Automation Insights for Local Businesses",
+  title: "Blog | QuantaMend - AI Automation Insights for Local Businesses",
   description:
     "Expert guides on AI lead reactivation, voice receptionists, and automation strategies for MedSpas, dental clinics, real estate, and high-revenue local businesses.",
   openGraph: {
-    title: "QuantaMend Blog — AI Automation Insights",
+    title: "QuantaMend Blog | AI Automation Insights",
     description:
       "Expert guides on AI lead reactivation, voice receptionists, and automation for high-revenue local businesses.",
     type: "website",
@@ -27,7 +27,7 @@ const articles = [
   {
     slug: "missed-calls-costing-your-practice",
     title:
-      "Your Practice Is Losing $150,000/Year to Missed Calls — Here's the Math (And the Fix)",
+      "Your Practice Is Losing $150,000/Year to Missed Calls: Here's the Math (And the Fix)",
     excerpt:
       "62% of calls to local businesses go unanswered. We break down the real revenue impact, show you the lifetime value math, and explain how AI voice agents eliminate this problem permanently.",
     category: "Revenue Recovery",
@@ -39,7 +39,7 @@ const articles = [
     title:
       "AI Receptionist vs. Hiring Another Front Desk Employee: The Complete Cost-Benefit Analysis for 2026",
     excerpt:
-      "A new hire costs $45K/year and still can't work nights or weekends. Compare the true total cost of a human receptionist against a 24/7 AI voice agent — with real numbers from actual practices.",
+      "A new hire costs $45K/year and still can't work nights or weekends. Compare the true total cost of a human receptionist against a 24/7 AI voice agent, using real numbers from actual practices.",
     category: "Operations",
     readTime: "11 min read",
     date: "April 5, 2026",
