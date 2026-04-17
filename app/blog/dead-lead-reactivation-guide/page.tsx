@@ -59,7 +59,7 @@ export default function DeadLeadArticle() {
         <p className="text-label text-[15px] leading-relaxed">
           AI-powered lead reactivation targets dormant past clients in your CRM
           with personalized SMS conversations, handling objections and booking
-          appointments automatically — recovering an average of 37% of
+          appointments automatically, recovering an average of 37% of
           contacted leads at near-zero marginal cost.
         </p>
       </div>
@@ -76,7 +76,7 @@ export default function DeadLeadArticle() {
           Consider the math. The average MedSpa spends $150–$300 to acquire a
           single new client through Google Ads, Instagram, or referral programs.
           That client comes in for a $400 Botox treatment, maybe returns once or
-          twice, and then — silence. They disappear into your CRM. Their contact
+          twice, and then... silence. They disappear into your CRM. Their contact
           record gathers digital dust.
         </p>
         <p>
@@ -87,13 +87,13 @@ export default function DeadLeadArticle() {
         </p>
         <p>
           The reason is simple: reactivation at scale requires personalized,
-          conversational outreach — and your front desk team is already drowning
+          conversational outreach, and your front desk team is already drowning
           in incoming calls, check-ins, and insurance paperwork.
         </p>
 
         <h2>Why Traditional Reactivation Campaigns Fail</h2>
         <p>
-          Before we dive into the AI solution, let&apos;s understand why the
+          Before we review the AI solution, let&apos;s understand why the
           old playbook doesn&apos;t work anymore:
         </p>
         <h3>1. Email Blast Fatigue</h3>
@@ -108,7 +108,7 @@ export default function DeadLeadArticle() {
           If your front desk team could call 20 past clients per day (which is
           generous given their other responsibilities), it would take{" "}
           <strong>100 business days</strong> to work through a 2,000-person
-          database. That&apos;s five months of daily calling — and by the time
+          database. That&apos;s five months of daily calling, and by the time
           you finish, the first batch is cold again.
         </p>
         <h3>3. Generic Messaging Kills Response Rates</h3>
@@ -131,22 +131,22 @@ export default function DeadLeadArticle() {
         <p>
           The AI connects to your existing CRM (GoHighLevel, HubSpot,
           Salesforce, or any system with an API) and scans your entire contact
-          database. It identifies leads that meet your dormancy criteria —
+          database. It identifies leads that meet your dormancy criteria:
           typically clients who haven&apos;t booked or responded in 90+ days.
         </p>
         <p>
           The system then scores each lead based on:
         </p>
         <ul>
-          <li><strong>Recency</strong> — When was their last visit or interaction?</li>
-          <li><strong>Frequency</strong> — How many times did they book historically?</li>
-          <li><strong>Value</strong> — What was their average spend per visit?</li>
-          <li><strong>Engagement signals</strong> — Have they opened recent emails or visited your website?</li>
+          <li><strong>Recency</strong>: When was their last visit or interaction?</li>
+          <li><strong>Frequency</strong>: How many times did they book historically?</li>
+          <li><strong>Value</strong>: What was their average spend per visit?</li>
+          <li><strong>Engagement signals</strong>: Have they opened recent emails or visited your website?</li>
         </ul>
 
         <h3>Step 2: Personalized SMS Sequences Deploy (Day 2)</h3>
         <p>
-          Unlike email blasts, AI reactivation uses SMS — which has a{" "}
+          Unlike email blasts, AI reactivation uses SMS, which has a{" "}
           <strong>98% open rate</strong> and a <strong>45% response rate</strong>
           , compared to email&apos;s 21% and 2% respectively.
         </p>
@@ -170,7 +170,7 @@ export default function DeadLeadArticle() {
         <h3>Step 3: Real-Time Objection Handling</h3>
         <p>
           This is where AI reactivation truly separates from everything else.
-          When a lead responds with an objection — and they will — the AI
+          When a lead responds with an objection (and they will), the AI
           handles it in real-time:
         </p>
         <ul>
@@ -198,7 +198,7 @@ export default function DeadLeadArticle() {
         <p>
           When the lead is ready to book, the AI doesn&apos;t hand them off to
           a landing page or tell them to &ldquo;call the office.&rdquo; It
-          books directly into your scheduling system — checking real-time
+          books directly into your scheduling system by checking real-time
           availability, confirming the appointment, and sending calendar
           confirmations. Zero friction.
         </p>
@@ -224,7 +224,7 @@ export default function DeadLeadArticle() {
           services are recurring by nature. Botox wears off in 3–4 months.
           Filler lasts 6–12 months. Laser treatments require multiple sessions.
           Every client who doesn&apos;t return on schedule is leaving money on
-          the table — and is at risk of switching providers.
+          the table, and is at risk of switching providers.
         </p>
         <p>
           <strong>Typical results:</strong> 340 dormant clients reactivated from
@@ -237,7 +237,7 @@ export default function DeadLeadArticle() {
           The average dental practice has 1,500–2,500 active patient records,
           but only 60–70% are &ldquo;current&rdquo; (seen within the last 18
           months). The remaining 30–40% represent a massive reactivation
-          opportunity — especially for hygiene recalls, which are the
+          opportunity, especially for hygiene recalls, which are the
           foundation of practice production.
         </p>
         <p>
@@ -248,7 +248,7 @@ export default function DeadLeadArticle() {
 
         <h3>Real Estate</h3>
         <p>
-          Real estate agents accumulate massive lead databases over time —
+          Real estate agents accumulate massive lead databases over time,
           open house visitors, expired listing contacts, past buyer inquiries
           who weren&apos;t ready. AI reactivation re-engages these contacts
           with market updates, new listings in their target area, or
@@ -275,7 +275,7 @@ export default function DeadLeadArticle() {
           This &ldquo;prove it first&rdquo; approach works because the marginal
           cost of running 100 additional leads through an AI system is near
           zero, while the conversion rate from free pilot to paid contract is
-          exceptionally high — because the results speak for themselves.
+          exceptionally high because the results speak for themselves.
         </p>
 
         <h2>How to Get Started</h2>

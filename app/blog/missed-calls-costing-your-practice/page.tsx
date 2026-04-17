@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Your Practice Is Losing $150,000/Year to Missed Calls — Here's the Math | QuantaMend",
+    "Your Practice Is Losing $150,000/Year to Missed Calls: Here's the Math | QuantaMend",
   description:
-    "62% of calls to local businesses go unanswered. Learn the true revenue impact of missed calls for dental clinics, MedSpas, and local practices — and how AI voice agents eliminate the problem.",
+    "62% of calls to local businesses go unanswered. Learn the true revenue impact of missed calls for dental clinics, MedSpas, and local practices, and how AI voice agents eliminate the problem.",
   keywords:
     "missed calls dental practice, missed calls revenue loss, AI receptionist, virtual receptionist, phone answering service dental, medspa missed calls, after hours phone service",
   openGraph: {
@@ -33,13 +33,13 @@ export default function MissedCallsArticle() {
           <span className="text-sm text-body">April 8, 2026</span>
         </div>
         <h1 className="display-large mb-6">
-          Your Practice Is Losing $150,000/Year to Missed Calls — Here&apos;s the
+          Your Practice Is Losing $150,000/Year to Missed Calls: Here&apos;s the
           Math (And the Fix)
         </h1>
         <p className="body-large">
           Every time your phone rings and nobody answers, a potential patient
           hangs up and calls the next result on Google. Here&apos;s exactly how
-          much that costs you — and the technology that eliminates it.
+          much that costs you, and the technology that eliminates it.
         </p>
       </header>
 
@@ -59,8 +59,8 @@ export default function MissedCallsArticle() {
           Let&apos;s start with the uncomfortable truth: industry data from 2024–2026
           consistently shows that local healthcare and service businesses miss
           between <strong>28% and 38%</strong> of all incoming phone calls during
-          business hours. During peak periods — Monday mornings, lunch hours,
-          and late afternoons — the rate can exceed 50%.
+          business hours. During peak periods like Monday mornings, lunch hours,
+          and late afternoons, the rate can exceed 50%.
         </p>
         <p>
           But the missed call itself isn&apos;t the real problem. The real problem
@@ -77,7 +77,7 @@ export default function MissedCallsArticle() {
         <p>
           This means <strong>you never even know you lost them</strong>. There&apos;s
           no missed call notification that captures their name, their need, or
-          their urgency. They vanish into the void — and your competitor gets
+          their urgency. They vanish into the void, and your competitor gets
           the revenue.
         </p>
 
@@ -85,7 +85,7 @@ export default function MissedCallsArticle() {
         <p>
           This is the statistic that should make practice owners lose sleep.
           More than half of your missed calls aren&apos;t from existing patients
-          calling to reschedule — they&apos;re from prospective new patients
+          calling to reschedule; they&apos;re from prospective new patients
           who found you through Google, saw your reviews, and decided to call.
           These are the most valuable callers in your entire business. And
           you&apos;re routing them to a voicemail box that most of them will
@@ -147,18 +147,18 @@ export default function MissedCallsArticle() {
           <li>Processing insurance verifications and paperwork</li>
           <li>Confirming and rescheduling appointments</li>
           <li>Answering questions from clinical staff</li>
-          <li>Managing the phone — which rings constantly</li>
+          <li>Managing the phone, which rings constantly</li>
         </ul>
         <p>
           When a patient is standing at the desk and the phone rings, the phone
-          loses. Every time. And that&apos;s not a staffing failure — it&apos;s
+          loses. Every time. And that&apos;s not a staffing failure; it&apos;s
           a structural one. No human can handle simultaneous in-person and
           phone interactions at the quality level patients expect.
         </p>
 
         <h3>The After-Hours Black Hole</h3>
         <p>
-          45% of patient calls occur outside standard business hours —
+          45% of patient calls occur outside standard business hours:
           evenings, weekends, and lunch breaks. These are often your most
           motivated callers: parents searching for an emergency dentist
           after their child chips a tooth, or working professionals who can
@@ -175,7 +175,7 @@ export default function MissedCallsArticle() {
           AI voice agents are not the robotic IVR systems of the past
           (&ldquo;Press 1 for appointments, press 2 for billing&rdquo;). Modern
           AI voice technology uses natural language processing to conduct
-          genuine, human-like phone conversations — understanding context,
+          genuine, human-like phone conversations by understanding context,
           intent, and even emotional tone.
         </p>
         <p>Here&apos;s what a properly deployed AI voice agent does:</p>
@@ -183,14 +183,14 @@ export default function MissedCallsArticle() {
         <h3>Answers Every Call in Under 2 Rings</h3>
         <p>
           No hold music. No voicemail. No &ldquo;all representatives are busy.&rdquo;
-          Every call — whether it comes in at 2 PM on a Tuesday or 11 PM on a
-          Saturday — is answered by an AI agent that sounds natural, knows your
+          Every call, whether it comes in at 2 PM on a Tuesday or 11 PM on a
+          Saturday, is answered by an AI agent that sounds natural, knows your
           services, and can handle the inquiry from start to finish.
         </p>
 
         <h3>Qualifies and Routes Intelligently</h3>
         <p>
-          The AI doesn&apos;t just answer — it qualifies. It determines
+          The AI doesn&apos;t just answer; it qualifies. It determines
           whether the caller needs:
         </p>
         <ul>
@@ -204,7 +204,7 @@ export default function MissedCallsArticle() {
         <h3>Books Directly Into Your Calendar</h3>
         <p>
           When the caller is ready to book, the AI checks your real-time
-          availability and confirms the appointment — no transferring, no
+          availability and confirms the appointment without transferring,
           callbacks, no friction. The patient hangs up with a confirmed booking
           and a calendar invite.
         </p>
@@ -221,7 +221,7 @@ export default function MissedCallsArticle() {
         <p>
           Every practice owner intellectually knows that missed calls are a
           problem. But few have done the math to see that it&apos;s a
-          six-figure problem — and even fewer know that the technology to
+          six-figure problem, and even fewer know that the technology to
           solve it permanently is available right now, at a fraction of the
           cost of hiring additional front desk staff.
         </p>
@@ -239,7 +239,7 @@ export default function MissedCallsArticle() {
           </p>
           <p className="text-label text-[15px] leading-relaxed mb-4">
             QuantaMend&apos;s AI voice receptionist answers every call, qualifies
-            every inquiry, and books directly into your calendar — 24/7. See
+            every inquiry, and books directly into your calendar, 24/7. See
             how it works with a free strategy call.
           </p>
           <a href="/#cta" className="btn-primary py-3 px-6 text-sm">
