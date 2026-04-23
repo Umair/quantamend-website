@@ -8,7 +8,7 @@ from moviepy.video.VideoClip import VideoClip
 import numpy as np
 
 # Configuration
-SHOW_VIRTUAL_MOUSE = True  # Set to False to hide the fake mouse cursor during recording
+SHOW_VIRTUAL_MOUSE = False  # Set to False to hide the fake mouse cursor during recording
 
 INPUT_DIR = "personalized_video_gen/input"
 OUTPUT_DIR = "personalized_video_gen/output"
