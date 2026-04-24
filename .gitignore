@@ -17,6 +17,7 @@
 /.next/
 /out/
 
+personalized_video_gen/
 # production
 /build
 

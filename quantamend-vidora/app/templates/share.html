@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Message for {{ lead.first_name }} - QuantaMend</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #fcfbfa; }
+    </style>
+</head>
+<body class="font-sans text-gray-900 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="h-16 flex items-center px-8 border-b border-gray-200 bg-white">
+        <!-- Minimal placeholder logo -->
+        <div class="font-bold text-xl tracking-tight text-blue-700">Q.</div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-8 lg:py-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+            
+            <!-- VIDEO SECTION (LEFT) -->
+            <div class="flex-1">
+                <div class="bg-black rounded-lg overflow-hidden shadow-xl aspect-video w-full flex items-center justify-center relative">
+                    {% if lead.status == 'completed' and lead.video_url %}
+                        <video controls class="w-full h-full object-cover">
+                            <source src="{{ lead.video_url }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    {% elif lead.status == 'processing' %}
+                        <div class="text-white flex flex-col items-center">
+                            <svg class="animate-spin h-8 w-8 mb-4 sm:h-12 sm:w-12 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            <p class="text-lg">Generating personalized video...</p>
+                            <p class="text-sm text-gray-400 mt-2">Checking back shortly.</p>
+                        </div>
+                        <script>
+                            // Auto-refresh until processing is done
+                            setTimeout(() => { window.location.reload(); }, 10000);
+                        </script>
+                    {% else %}
+                        <div class="text-white">
+                            <p>Video is pending or failed to generate.</p>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Text below video -->
+                <div class="mt-6 bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                    <h1 class="text-2xl font-bold mb-4">Hi {{ lead.first_name }} {{ lead.last_name }}</h1>
+                    <p class="text-gray-600">Thanks for watching! Just reply 'yes' to this email or book a call using the calendar.</p>
+                </div>
+            </div>
+
+            <!-- CALENDAR SECTION (RIGHT) -->
+            <div class="lg:w-[400px] flex-shrink-0">
+                <div class="bg-gray-900 rounded-lg shadow-xl overflow-hidden min-h-[600px] h-full w-full relative">
+                    <!-- Cal.com Embed -->
+                    <div style="position: absolute; top:0; left:0; width:100%; height:100%; overflow:scroll" id="my-cal-inline"></div>
+                    <script type="text/javascript">
+                    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+                    Cal("init", {origin:"https://cal.com"});
+                    
+                    // User's calendar link from DB/ENV
+                    const calLink = "{{ cal_link }}";
+                    
+                    Cal("inline", {
+                        elementOrSelector:"#my-cal-inline",
+                        calLink: calLink,
+                        layout: "month_view",
+                        theme: "dark"
+                    });
+                    Cal("ui", {"styles":{"branding":{"brandColor":"#000000"}},"hideEventTypeDetails":false,"layout":"month_view"});
+                    </script>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</body>
+</html>

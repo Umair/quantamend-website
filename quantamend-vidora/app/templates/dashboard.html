@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - QuantaMend Vidora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 flex h-screen text-gray-800 font-sans">
+    
+    <!-- Sidebar -->
+    <div class="w-64 bg-white border-r border-gray-200 flex flex-col hidden md:flex">
+        <div class="p-4 border-b border-gray-200 flex items-center mb-4">
+            <span class="font-bold text-xl tracking-tight text-blue-700">▶ vidora</span>
+        </div>
+        <nav class="flex-1 px-4 space-y-2">
+            <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">🏠 Welcome</a>
+            <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">📁 Video Libraries</a>
+            <a href="/dashboard" class="block px-4 py-2 bg-blue-50 text-blue-700 font-medium rounded-lg">🎥 Dynamic Videos</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-8">
+            <div class="relative w-96">
+                <input type="text" placeholder="Search campaigns..." class="w-full bg-gray-100 border-none rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+        </header>
+
+        <main class="flex-1 overflow-y-auto p-8">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h1 class="text-3xl font-semibold text-gray-900">Dynamic Videos</h1>
+                    <p class="text-gray-500 mt-1">Scale yourself with dynamic videos and your integrations</p>
+                </div>
+                <a href="/create" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md transition duration-150">
+                    Create Dynamic Video
+                </a>
+            </div>
+
+            <!-- Table -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-50 border-b border-gray-200 text-sm text-gray-500">
+                            <th class="py-3 px-6 font-medium">Campaign</th>
+                            <th class="py-3 px-6 font-medium">Owner</th>
+                            <th class="py-3 px-6 font-medium">Date</th>
+                            <th class="py-3 px-6 font-medium"># Videos</th>
+                            <th class="py-3 px-6 font-medium">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if campaigns %}
+                            {% for campaign in campaigns %}
+                            <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                <td class="py-4 px-6 font-medium text-gray-900">{{ campaign.name }}</td>
+                                <td class="py-4 px-6 text-gray-600">{{ campaign.owner }}</td>
+                                <td class="py-4 px-6 text-gray-600">{{ campaign.created_at.strftime("%m/%d/%Y") }}</td>
+                                <td class="py-4 px-6 text-gray-600">{{ campaign.leads | length }}</td>
+                                <td class="py-4 px-6">
+                                    <a href="/campaign/{{ campaign.id }}" class="text-blue-600 hover:underline">View Leads</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="5" class="py-8 text-center text-gray-500">
+                                    No campaigns found. Click "Create Dynamic Video" to start.
+                                </td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

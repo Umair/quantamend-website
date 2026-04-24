@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ campaign.name }} - Leads</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta http-equiv="refresh" content="10">
+</head>
+<body class="bg-gray-50 flex h-screen text-gray-800 font-sans">
+    
+    <!-- Sidebar -->
+    <div class="w-64 bg-white border-r border-gray-200 flex flex-col hidden md:flex">
+        <div class="p-4 border-b border-gray-200 flex items-center mb-4">
+            <span class="font-bold text-xl tracking-tight text-blue-700">▶ vidora</span>
+        </div>
+        <nav class="flex-1 px-4 space-y-2">
+            <a href="/dashboard" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">🔙 Back to Dashboard</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-8">
+            <h1 class="text-xl font-semibold">{{ campaign.name }} - Leads</h1>
+            <form action="/campaign/{{ campaign.id }}/regenerate" method="POST">
+                <button type="submit" class="bg-gray-800 hover:bg-gray-900 text-white font-medium py-2 px-4 rounded shadow transition text-sm flex items-center gap-2" onclick="return confirm('Are you sure you want to completely rebuild all videos for this campaign?');">
+                    <span>🔄</span> Regenerate All Videos
+                </button>
+            </form>
+        </header>
+
+        <main class="flex-1 overflow-y-auto p-8">
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-50 border-b border-gray-200 text-sm text-gray-500">
+                            <th class="py-3 px-6 font-medium">First Name</th>
+                            <th class="py-3 px-6 font-medium">Last Name</th>
+                            <th class="py-3 px-6 font-medium">Website URL</th>
+                            <th class="py-3 px-6 font-medium">Status</th>
+                            <th class="py-3 px-6 font-medium">Share Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if campaign.leads %}
+                            {% for lead in campaign.leads %}
+                            <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                <td class="py-4 px-6 font-medium text-gray-900">{{ lead.first_name }}</td>
+                                <td class="py-4 px-6 text-gray-600">{{ lead.last_name }}</td>
+                                <td class="py-4 px-6 text-blue-500 truncate max-w-xs" title="{{ lead.website_url }}">{{ lead.website_url }}</td>
+                                <td class="py-4 px-6">
+                                    <div class="flex flex-col items-start gap-1">
+                                        {% if lead.status == 'completed' %}
+                                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Ready</span>
+                                        {% elif lead.status == 'failed' %}
+                                            <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs font-bold">Failed</span>
+                                        {% elif lead.status == 'processing' %}
+                                            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold animate-pulse">Generating</span>
+                                        {% else %}
+                                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-bold">Pending</span>
+                                        {% endif %}
+                                        
+                                        {% if lead.status_detail %}
+                                        <details class="text-xs text-gray-500 mt-1 cursor-pointer group">
+                                            <summary class="hover:text-blue-600 outline-none font-medium">View Progress</summary>
+                                            <p class="mt-2 bg-gray-50 p-2 rounded border border-gray-200 shadow-inner w-56 text-left break-words leading-relaxed">
+                                                {{ lead.status_detail }}
+                                            </p>
+                                        </details>
+                                        {% endif %}
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6">
+                                    {% if lead.status == 'completed' %}
+                                    <a href="/v/{{ campaign.id }}/{{ lead.id }}" target="_blank" class="text-blue-600 hover:underline">Open Share Page</a>
+                                    {% else %}
+                                    <span class="text-gray-400">Waiting...</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="5" class="py-8 text-center text-gray-500">
+                                    No leads found for this campaign.
+                                </td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-sm text-gray-400 mt-4 text-center">This page auto-refreshes every 10 seconds while videos generate.</p>
+        </main>
+    </div>
+</body>
+</html>

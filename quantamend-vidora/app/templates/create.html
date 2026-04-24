@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Campaign - QuantaMend Vidora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 flex h-screen text-gray-800 font-sans">
+    
+    <!-- Sidebar -->
+    <div class="w-64 bg-white border-r border-gray-200 flex flex-col hidden md:flex">
+        <div class="p-4 border-b border-gray-200 flex items-center mb-4">
+            <span class="font-bold text-xl tracking-tight text-blue-700">▶ vidora</span>
+        </div>
+        <nav class="flex-1 px-4 space-y-2">
+            <a href="/dashboard" class="block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">🔙 Back to Dashboard</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col overflow-y-auto">
+        <header class="h-16 bg-white border-b border-gray-200 flex items-center px-8">
+            <h1 class="text-xl font-semibold">Create New Dynamic Video Campaign</h1>
+        </header>
+
+        <main class="flex-1 p-8 max-w-4xl mx-auto w-full">
+            <form action="/campaign/create" method="POST" enctype="multipart/form-data" class="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+                
+                <!-- Campaign Basics -->
+                <div class="mb-10">
+                    <h2 class="text-lg font-bold text-gray-900 border-b pb-2 mb-4">Campaign Details</h2>
+                    <label class="block text-sm font-medium mb-1">Campaign Name</label>
+                    <input type="text" name="name" required placeholder="e.g. Q4 Outreach..." class="w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <!-- STEP 1 -->
+                <div class="mb-10">
+                    <div class="flex items-center gap-2 mb-4 border-b pb-2">
+                        <span class="bg-blue-100 text-blue-700 font-bold px-2 py-1 rounded text-sm">Step 1</span>
+                        <h2 class="text-lg font-bold text-gray-900">Upload Avatar Video</h2>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4">Upload your master recording (.mp4). We will overlay this as a circle bubble on top of the lead's website.</p>
+                    
+                    <label class="block cursor-pointer">
+                        <span class="sr-only">Choose video</span>
+                        <input type="file" name="avatar_video" accept="video/mp4,video/webm" required class="block w-full text-sm text-gray-500
+                          file:mr-4 file:py-2 file:px-4
+                          file:rounded-md file:border-0
+                          file:text-sm file:font-semibold
+                          file:bg-blue-50 file:text-blue-700
+                          hover:file:bg-blue-100
+                        "/>
+                    </label>
+                </div>
+
+                <!-- STEP 2 -->
+                <div class="mb-10">
+                    <div class="flex items-center gap-2 mb-4 border-b pb-2">
+                        <span class="bg-blue-100 text-blue-700 font-bold px-2 py-1 rounded text-sm">Step 2</span>
+                        <h2 class="text-lg font-bold text-gray-900">Landing Page Layout</h2>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4">Configure the share page where leads will view your video.</p>
+                    
+                    <label class="block text-sm font-medium mb-1">Fallback URL</label>
+                    <input type="text" name="fallback_url" value="https://quantamend.com" class="w-full border border-gray-300 rounded-md p-2 mb-4">
+                    
+                    <div class="flex items-center justify-between bg-gray-50 p-4 rounded-md">
+                        <div>
+                            <span class="font-medium text-sm">Simulate Scrolling</span>
+                            <p class="text-xs text-gray-500">Enable human-like automated scroll on the background website.</p>
+                        </div>
+                        <!-- UI Only toggle for now, backend assumes True -->
+                        <span class="bg-blue-600 text-white text-xs px-3 py-1 rounded-full">ON</span>
+                    </div>
+                </div>
+
+                <!-- STEP 3 -->
+                <div class="mb-10">
+                    <div class="flex items-center gap-2 mb-4 border-b pb-2">
+                        <span class="bg-blue-100 text-blue-700 font-bold px-2 py-1 rounded text-sm">Step 3</span>
+                        <h2 class="text-lg font-bold text-gray-900">Contacts / Leads</h2>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4">Upload your leads CSV file. Must contain exactly these headers: <code>First Name</code>, <code>Last Name</code>, <code>Website</code>.</p>
+                    
+                    <label class="block cursor-pointer">
+                        <span class="sr-only">Choose CSV</span>
+                        <input type="file" name="leads_csv" accept=".csv" required class="block w-full text-sm text-gray-500
+                          file:mr-4 file:py-2 file:px-4
+                          file:rounded-md file:border-0
+                          file:text-sm file:font-semibold
+                          file:bg-gray-100 file:text-gray-700
+                          hover:file:bg-gray-200
+                        "/>
+                    </label>
+                </div>
+                
+                <hr class="mb-6">
+                <div class="flex justify-end">
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-md shadow-md text-lg transition duration-150 transform hover:scale-105 flex items-center gap-2">
+                        <span>✨ Generate Dynamic Videos</span>
+                    </button>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
