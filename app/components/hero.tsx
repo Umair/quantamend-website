@@ -105,6 +105,7 @@ export default function Hero() {
   const ttsTimer    = useRef<ReturnType<typeof setInterval> | null>(null);
   const ttsEl       = useRef(0);
   const transcriptR = useRef<HTMLDivElement>(null);
+  const voicesRef   = useRef<SpeechSynthesisVoice[]>([]);
 
   const ind     = selIdx !== null ? industries[selIdx] : null;
   const hasAudio = !!ind?.audioSrc;
@@ -113,6 +114,15 @@ export default function Hero() {
     audioRef.current?.pause();
     if (typeof window !== "undefined") window.speechSynthesis?.cancel();
     if (ttsTimer.current) { clearInterval(ttsTimer.current); ttsTimer.current = null; }
+  }, []);
+
+  // Pre-load TTS voices as soon as the browser has them ready
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.speechSynthesis) return;
+    const load = () => { voicesRef.current = window.speechSynthesis.getVoices(); };
+    load(); // may already be populated on repeat renders
+    window.speechSynthesis.addEventListener("voiceschanged", load);
+    return () => window.speechSynthesis.removeEventListener("voiceschanged", load);
   }, []);
 
   // Audio events
@@ -142,9 +152,15 @@ export default function Hero() {
   const startTTS = useCallback((msgs: Message[]) => {
     if (typeof window === "undefined") return;
     window.speechSynthesis?.cancel();
-    const vs = window.speechSynthesis.getVoices();
-    const ai  = vs.find(v => v.lang.startsWith("en-US") && /google/i.test(v.name)) || vs.find(v => v.lang.startsWith("en")) || null;
-    const cal = vs.find(v => v.lang.startsWith("en") && v !== ai) || null;
+    // Use pre-loaded voices; fall back to live call if voiceschanged hasn't fired yet
+    const vs = voicesRef.current.length > 0 ? voicesRef.current : window.speechSynthesis.getVoices();
+    const ai  = vs.find(v => v.lang.startsWith("en-US") && /google/i.test(v.name))
+             || vs.find(v => v.lang.startsWith("en-US"))
+             || vs.find(v => v.lang.startsWith("en"))
+             || null;
+    const cal = vs.find(v => v.lang.startsWith("en-US") && /google/i.test(v.name) && v !== ai)
+             || vs.find(v => v.lang.startsWith("en") && v !== ai)
+             || null;
     const TOT = msgs.reduce((s, m) => s + m.text.split(" ").length * 0.38 + 0.5, 0);
     setDur(TOT); ttsEl.current = 0; setCur(0); setVis(0);
     let idx = 0;
