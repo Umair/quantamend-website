@@ -15,16 +15,17 @@ const industries: Industry[] = [
   {
     id: "lawfirm", label: "Law Firms", icon: Scale,
     businessName: "Hart & Sloan Injury Law", audioSrc: "/audio/demo-lawfirm.mp3",
-    // Cues estimated for 149.7s audio: ~8s intro, conversation spans ~8–70s
-    cues: [8, 17, 27, 35, 44, 52, 55],
+    // Exact timestamps from Whisper transcription of demo-lawfirm.mp3
+    cues: [0, 6.18, 10.32, 14.70, 23.52, 28.38, 65.20, 133.90],
     messages: [
-      { role: "ai",     text: "Thank you for calling Hart and Sloan Injury Law — how may I help you?" },
-      { role: "caller", text: "I was in a car accident last week and need to speak with an attorney." },
-      { role: "ai",     text: "I'm sorry to hear that. Can you tell me briefly what happened?" },
-      { role: "caller", text: "I was rear-ended at a red light. The other driver ran it." },
-      { role: "ai",     text: "Understood. May I get your name and best number to reach you?" },
-      { role: "caller", text: "James Thorne, 512-555-0147." },
-      { role: "ai",     text: "Thank you James. Attorney Hart has a free consult open Friday at 2 PM — I'll send you a confirmation now." },
+      { role: "ai",     text: "Thank you for calling Hart & Sloan Injury Law. I'm their AI receptionist. How may I help you?" },
+      { role: "caller", text: "Hi, I was recently in a car accident and need an attorney." },
+      { role: "ai",     text: "Can you tell me a little more about the situation?" },
+      { role: "caller", text: "I was rear-ended at a red light. It was the other driver's fault." },
+      { role: "ai",     text: "Let's gather some details to assist you. Can I start by getting your full name?" },
+      { role: "caller", text: "Ashley Johnson." },
+      { role: "ai",     text: "The next step is scheduling a brief call with our intake specialist. There's no cost — we work on a contingency basis." },
+      { role: "ai",     text: "You're confirmed for this Friday at 10 AM with our intake specialist. You'll get a confirmation email shortly." },
     ],
   },
   {
@@ -42,35 +43,38 @@ const industries: Industry[] = [
   },
   {
     id: "plumbing", label: "Plumbing", icon: Wrench,
-    businessName: "Summit Plumbing Co.", audioSrc: "/audio/demo-plumbing-new.mp3",
-    // Cues estimated for 158.1s audio: ~8s intro, conversation spans ~8–75s
-    cues: [8, 15, 25, 38, 44, 55, 62],
+    businessName: "Mountain View Plumbing", audioSrc: "/audio/demo-plumbing-new.mp3",
+    // Exact timestamps from Whisper transcription of demo-plumbing-new.mp3
+    cues: [0, 5.34, 17.14, 29.16, 45.06, 61.92, 80.02, 129.20],
     messages: [
-      { role: "ai",     text: "Thanks for calling Summit Plumbing — what's going on today?" },
-      { role: "caller", text: "I have a burst pipe under my kitchen sink. Water is everywhere." },
-      { role: "ai",     text: "That's urgent — I'm flagging this as emergency dispatch right now. What's your address?" },
-      { role: "caller", text: "3421 Maple Drive, Austin." },
-      { role: "ai",     text: "While we send someone, can you shut the valve under the sink to stop the flow?" },
-      { role: "caller", text: "Already done. How fast can someone get here?" },
-      { role: "ai",     text: "Our nearest tech is 12 minutes away. You'll get a text with his name and live ETA." },
+      { role: "ai",     text: "Thank you for calling Mountain View Plumbing. How may I help you?" },
+      { role: "caller", text: "Hi, I have no hot water. My water heater stopped working — I bought it from you guys 5 years ago." },
+      { role: "ai",     text: "I'm sorry to hear that. If it's only 5 years old it should still be under warranty. Just a few quick questions." },
+      { role: "ai",     text: "Are you the homeowner or the person responsible for the property?" },
+      { role: "caller", text: "Yeah, it's a Rheem — Rheem Performance Platinum." },
+      { role: "caller", text: "It's Ryan Whitmore." },
+      { role: "ai",     text: "Same-day appointments are available at no extra charge during normal business hours, 9 to 5." },
+      { role: "ai",     text: "The earliest we have available is today at 2 PM. Does that work for you?" },
     ],
   },
   {
     id: "it", label: "IT", icon: Monitor,
-    businessName: "Apex IT Solutions", audioSrc: "/audio/demo-it.mp3",
-    // Cues estimated for 111.5s audio: ~5s intro, conversation spans ~5–55s
-    cues: [5, 13, 21, 31, 34, 41, 45],
+    businessName: "Cyberguard Solutions", audioSrc: "/audio/demo-it.mp3",
+    // Exact timestamps from Whisper transcription of demo-it.mp3
+    cues: [0, 7.18, 16.70, 22.12, 27.84, 52.52, 81.42, 101.54],
     messages: [
-      { role: "ai",     text: "Apex IT Solutions — I'm the AI assistant. What can I help with?" },
-      { role: "caller", text: "Our whole office network is down. Nobody can get into anything." },
-      { role: "ai",     text: "That's Priority 1. I'm alerting our on-call engineer right now. What's your company name?" },
-      { role: "caller", text: "Keller Financial Group." },
-      { role: "ai",     text: "Keller Financial, Managed Pro plan. Is this affecting all 23 workstations?" },
-      { role: "caller", text: "Yes — phones too." },
-      { role: "ai",     text: "Engineer Jake is being paged now and will call you within 5 minutes. Ticket #4821 is open." },
+      { role: "ai",     text: "Thank you for calling Cyberguard Solutions. This is the AI receptionist. How may I help you?" },
+      { role: "caller", text: "We're seeking a consultation for a network security audit. We're concerned about a possible system breach." },
+      { role: "ai",     text: "Before we proceed, are you a new client or have you worked with us before?" },
+      { role: "caller", text: "We would be a new client." },
+      { role: "caller", text: "It's Max Garfield." },
+      { role: "ai",     text: "You're seeking a security audit and are concerned about a system breach — this aligns with our vulnerability assessment and managed security services." },
+      { role: "caller", text: "We use a few tools, but our primary line of defense is CrowdStrike." },
+      { role: "ai",     text: "Thank you, Max. Your details will be passed along to our security team and we'll follow up if we can help." },
     ],
   },
 ];
+
 
 const FEATURE_CARDS = [
   { icon: Heart,      label: "AI Empathy"          },
