@@ -15,19 +15,26 @@ const industries: Industry[] = [
   {
     id: "lawfirm", label: "Law Firms", icon: Scale,
     businessName: "Hart & Sloan Injury Law", audioSrc: "/audio/demo-lawfirm.mp3",
-    // Exact timestamps from Whisper transcription of demo-lawfirm.mp3
-    cues: [0, 6.18, 10.32, 14.70, 23.52, 28.38, 65.20, 133.90],
+    // Exact timestamps from Whisper — all major speaker turns across the full 149.7s call
+    cues: [0, 6.18, 14.70, 23.52, 28.38, 29.92, 33.82, 51.00, 65.20, 76.98, 79.40, 117.06, 126.42, 133.90],
     messages: [
       { role: "ai",     text: "Thank you for calling Hart & Sloan Injury Law. I'm their AI receptionist. How may I help you?" },
       { role: "caller", text: "Hi, I was recently in a car accident and need an attorney." },
-      { role: "ai",     text: "Can you tell me a little more about the situation?" },
       { role: "caller", text: "I was rear-ended at a red light. It was the other driver's fault." },
       { role: "ai",     text: "Let's gather some details to assist you. Can I start by getting your full name?" },
       { role: "caller", text: "Ashley Johnson." },
-      { role: "ai",     text: "The next step is scheduling a brief call with our intake specialist. There's no cost — we work on a contingency basis." },
+      { role: "ai",     text: "Thank you, Ashley. What's the best phone number to reach you at?" },
+      { role: "caller", text: "It's 404-555-0199." },
+      { role: "caller", text: "Yeah, it was in Gwinnett County." },
+      { role: "ai",     text: "The next step is scheduling a brief call with our intake specialist to gather more details and determine whether we'll accept your case." },
+      { role: "caller", text: "Does that cost anything?" },
+      { role: "ai",     text: "No — the initial consultation is completely free. We work on a contingency basis, so you pay nothing unless we win." },
+      { role: "ai",     text: "We have openings tomorrow between 1–4 PM or Friday between 10 AM–12 PM. Which works best for you?" },
+      { role: "caller", text: "Friday at 10 o'clock works for me." },
       { role: "ai",     text: "You're confirmed for this Friday at 10 AM with our intake specialist. You'll get a confirmation email shortly." },
     ],
   },
+
   {
     id: "clinic", label: "Clinics", icon: Stethoscope,
     businessName: "Bright Smile Dental", audioSrc: null,
