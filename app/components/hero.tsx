@@ -6,13 +6,17 @@ import { useState, useEffect, useRef, useCallback } from "react";
 type Message = { role: "ai" | "caller"; text: string };
 type Industry = {
   id: string; label: string; icon: React.ElementType;
-  businessName: string; audioSrc: string | null; messages: Message[];
+  businessName: string; audioSrc: string | null;
+  messages: Message[];
+  cues?: number[]; // seconds at which each message should appear in the audio
 };
 
 const industries: Industry[] = [
   {
     id: "lawfirm", label: "Law Firms", icon: Scale,
     businessName: "Hart & Sloan Injury Law", audioSrc: "/audio/demo-lawfirm.mp3",
+    // Cues estimated for 149.7s audio: ~8s intro, conversation spans ~8–70s
+    cues: [8, 17, 27, 35, 44, 52, 55],
     messages: [
       { role: "ai",     text: "Thank you for calling Hart and Sloan Injury Law — how may I help you?" },
       { role: "caller", text: "I was in a car accident last week and need to speak with an attorney." },
@@ -39,6 +43,8 @@ const industries: Industry[] = [
   {
     id: "plumbing", label: "Plumbing", icon: Wrench,
     businessName: "Summit Plumbing Co.", audioSrc: "/audio/demo-plumbing-new.mp3",
+    // Cues estimated for 158.1s audio: ~8s intro, conversation spans ~8–75s
+    cues: [8, 15, 25, 38, 44, 55, 62],
     messages: [
       { role: "ai",     text: "Thanks for calling Summit Plumbing — what's going on today?" },
       { role: "caller", text: "I have a burst pipe under my kitchen sink. Water is everywhere." },
@@ -52,6 +58,8 @@ const industries: Industry[] = [
   {
     id: "it", label: "IT", icon: Monitor,
     businessName: "Apex IT Solutions", audioSrc: "/audio/demo-it.mp3",
+    // Cues estimated for 111.5s audio: ~5s intro, conversation spans ~5–55s
+    cues: [5, 13, 21, 31, 34, 41, 45],
     messages: [
       { role: "ai",     text: "Apex IT Solutions — I'm the AI assistant. What can I help with?" },
       { role: "caller", text: "Our whole office network is down. Nobody can get into anything." },
@@ -140,7 +148,16 @@ export default function Hero() {
     if (!a || !hasAudio) return;
     const onT = () => {
       setCur(a.currentTime);
-      if (a.duration > 0) setVis(Math.min(Math.ceil((a.currentTime / a.duration) * (ind?.messages.length ?? 7) * 1.1), ind?.messages.length ?? 7));
+      if (a.duration > 0) {
+        const cues = ind?.cues;
+        if (cues && cues.length > 0) {
+          // Use explicit timestamps: count how many cues have passed
+          setVis(cues.filter(t => a.currentTime >= t).length);
+        } else {
+          // Fallback linear formula for TTS-backed industries
+          setVis(Math.min(Math.ceil((a.currentTime / a.duration) * (ind?.messages.length ?? 7) * 1.1), ind?.messages.length ?? 7));
+        }
+      }
     };
     const onM = () => setDur(a.duration);
     const onE = () => { setPlaying(false); setVis(ind?.messages.length ?? 7); };
