@@ -11,19 +11,6 @@ type Industry = {
 
 const industries: Industry[] = [
   {
-    id: "clinic", label: "Clinics", icon: Stethoscope,
-    businessName: "Bright Smile Dental", audioSrc: null,
-    messages: [
-      { role: "ai",     text: "Thank you for calling Bright Smile Dental — I'm their AI receptionist. How can I help?" },
-      { role: "caller", text: "Hi, I have a bad toothache and need to see someone as soon as possible." },
-      { role: "ai",     text: "I'm sorry to hear that. Are you an existing patient with the practice?" },
-      { role: "caller", text: "Yes, I came in about two years ago." },
-      { role: "ai",     text: "Found your record. Dr. Chen has an opening tomorrow at 10 AM. Shall I book that for you?" },
-      { role: "caller", text: "Yes, that works perfectly." },
-      { role: "ai",     text: "Done — you're confirmed for tomorrow at 10 AM. A reminder text is on its way now." },
-    ],
-  },
-  {
     id: "lawfirm", label: "Law Firms", icon: Scale,
     businessName: "Hart & Sloan Injury Law", audioSrc: "/audio/demo-lawfirm.mp3",
     messages: [
@@ -34,6 +21,19 @@ const industries: Industry[] = [
       { role: "ai",     text: "Understood. May I get your name and best number to reach you?" },
       { role: "caller", text: "James Thorne, 512-555-0147." },
       { role: "ai",     text: "Thank you James. Attorney Hart has a free consult open Friday at 2 PM — I'll send you a confirmation now." },
+    ],
+  },
+  {
+    id: "clinic", label: "Clinics", icon: Stethoscope,
+    businessName: "Bright Smile Dental", audioSrc: null,
+    messages: [
+      { role: "ai",     text: "Thank you for calling Bright Smile Dental — I'm their AI receptionist. How can I help?" },
+      { role: "caller", text: "Hi, I have a bad toothache and need to see someone as soon as possible." },
+      { role: "ai",     text: "I'm sorry to hear that. Are you an existing patient with the practice?" },
+      { role: "caller", text: "Yes, I came in about two years ago." },
+      { role: "ai",     text: "Found your record. Dr. Chen has an opening tomorrow at 10 AM. Shall I book that for you?" },
+      { role: "caller", text: "Yes, that works perfectly." },
+      { role: "ai",     text: "Done — you're confirmed for tomorrow at 10 AM. A reminder text is on its way now." },
     ],
   },
   {
