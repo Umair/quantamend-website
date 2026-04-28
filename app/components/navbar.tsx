@@ -32,7 +32,7 @@ export default function Navbar() {
     >
       <div className="max-w-[1080px] mx-auto px-6 h-[72px] flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2.5 group">
+        <a href="/" className="flex items-center gap-2.5 group">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/logo.png"
@@ -60,7 +60,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden lg:flex items-center gap-3">
-          <a href="#cta" className="btn-primary text-sm py-2.5 px-5">
+          <a href="/#cta" className="btn-primary text-sm py-2.5 px-5">
             Book a Free Pilot
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="ml-1">
               <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
