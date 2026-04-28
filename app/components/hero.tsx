@@ -38,7 +38,7 @@ const industries: Industry[] = [
   },
   {
     id: "plumbing", label: "Plumbing", icon: Wrench,
-    businessName: "Summit Plumbing Co.", audioSrc: "/audio/demo-plumbing.mp3",
+    businessName: "Summit Plumbing Co.", audioSrc: "/audio/demo-plumbing-new.mp3",
     messages: [
       { role: "ai",     text: "Thanks for calling Summit Plumbing — what's going on today?" },
       { role: "caller", text: "I have a burst pipe under my kitchen sink. Water is everywhere." },
