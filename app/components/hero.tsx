@@ -116,11 +116,20 @@ export default function Hero() {
     if (ttsTimer.current) { clearInterval(ttsTimer.current); ttsTimer.current = null; }
   }, []);
 
-  // Pre-load TTS voices as soon as the browser has them ready
+  // Pre-load TTS voices and warm up the synthesis engine to prevent first-utterance stutter
   useEffect(() => {
     if (typeof window === "undefined" || !window.speechSynthesis) return;
-    const load = () => { voicesRef.current = window.speechSynthesis.getVoices(); };
-    load(); // may already be populated on repeat renders
+    const load = () => {
+      voicesRef.current = window.speechSynthesis.getVoices();
+      // Warm up Chrome's audio pipeline with a silent utterance — prevents the shaking first word
+      if (voicesRef.current.length > 0) {
+        const wu = new SpeechSynthesisUtterance(" ");
+        wu.volume = 0;
+        wu.rate = 2;
+        window.speechSynthesis.speak(wu);
+      }
+    };
+    load();
     window.speechSynthesis.addEventListener("voiceschanged", load);
     return () => window.speechSynthesis.removeEventListener("voiceschanged", load);
   }, []);
@@ -152,26 +161,31 @@ export default function Hero() {
   const startTTS = useCallback((msgs: Message[]) => {
     if (typeof window === "undefined") return;
     window.speechSynthesis?.cancel();
-    // Use pre-loaded voices; fall back to live call if voiceschanged hasn't fired yet
     const vs = voicesRef.current.length > 0 ? voicesRef.current : window.speechSynthesis.getVoices();
-    const ai  = vs.find(v => v.lang.startsWith("en-US") && /google/i.test(v.name))
-             || vs.find(v => v.lang.startsWith("en-US"))
-             || vs.find(v => v.lang.startsWith("en"))
-             || null;
-    const cal = vs.find(v => v.lang.startsWith("en-US") && /google/i.test(v.name) && v !== ai)
-             || vs.find(v => v.lang.startsWith("en") && v !== ai)
-             || null;
+    // Prefer high-quality Google online voices; fall back to any en-US then any en
+    const aiVoice = vs.find(v => /google us english/i.test(v.name))
+      || vs.find(v => /google uk english female/i.test(v.name))
+      || vs.find(v => v.lang === "en-US" && !v.localService)
+      || vs.find(v => /samantha/i.test(v.name))
+      || vs.find(v => v.lang.startsWith("en-US"))
+      || null;
+    const callerVoice = vs.find(v => /google uk english male/i.test(v.name))
+      || vs.find(v => v.lang === "en-US" && !v.localService && v !== aiVoice)
+      || vs.find(v => /alex/i.test(v.name))
+      || vs.find(v => v.lang.startsWith("en") && v !== aiVoice)
+      || null;
     const TOT = msgs.reduce((s, m) => s + m.text.split(" ").length * 0.38 + 0.5, 0);
     setDur(TOT); ttsEl.current = 0; setCur(0); setVis(0);
     let idx = 0;
     const next = () => {
       if (idx >= msgs.length) { setPlaying(false); return; }
       const u = new SpeechSynthesisUtterance(msgs[idx].text);
-      u.voice = msgs[idx].role === "ai" ? ai : cal;
-      u.rate  = msgs[idx].role === "ai" ? 1.05 : 0.95;
-      u.pitch = msgs[idx].role === "ai" ? 1.1 : 0.9;
+      u.voice = msgs[idx].role === "ai" ? aiVoice : callerVoice;
+      u.rate  = msgs[idx].role === "ai" ? 0.95 : 0.88;  // slower = more natural
+      u.pitch = msgs[idx].role === "ai" ? 1.0  : 0.95;  // 1.0 not 1.1 — removes thin/scary tone
+      u.volume = 1;
       setVis(idx + 1); idx++;
-      u.onend = () => setTimeout(next, 280);
+      u.onend = () => setTimeout(next, 320);
       window.speechSynthesis.speak(u);
     };
     next();
