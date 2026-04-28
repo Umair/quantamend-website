@@ -1,6 +1,7 @@
 import Navbar from "./components/navbar";
 import Hero from "./components/hero";
 import SocialProof from "./components/social-proof";
+import AiWorkforce from "./components/ai-workforce";
 import Problem from "./components/problem";
 import AiSystems from "./components/ai-systems";
 import HowItWorks from "./components/how-it-works";
@@ -46,6 +47,7 @@ export default function Home() {
       <main>
         <Hero />
         <SocialProof />
+        <AiWorkforce />
         <Problem />
         <div className="section-divider" />
         <AiSystems />

@@ -215,172 +215,163 @@ export default function Hero() {
 
   const seek = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!hasAudio || !audioRef.current || !dur) return;
-    const pct = (e.clientX - e.currentTarget.getBoundingClientRect().left) / e.currentTarget.getBoundingClientRect().width;
-    audioRef.current.currentTime = Math.max(0, Math.min(1, pct)) * dur;
+    const rect = e.currentTarget.getBoundingClientRect();
+    audioRef.current.currentTime = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width)) * dur;
   };
 
   const pct = dur > 0 ? Math.min((cur / dur) * 100, 100) : 0;
+
 
   return (
     <section style={{ background: "#f5f1eb" }} className="relative overflow-hidden">
       <style>{`
         @keyframes wb { from { transform:scaleY(.3); } to { transform:scaleY(1); } }
         @keyframes ln { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+        .hero-tabs-desktop { display:flex; gap:6px; }
+        .hero-tabs-mobile  { display:none; }
+        .demo-body { display:flex; height:360px; }
+        @media(max-width:767px){
+          .hero-tabs-desktop { display:none; }
+          .hero-tabs-mobile  { display:flex; overflow-x:auto; gap:8px; padding:10px 14px;
+                               border-bottom:1px solid #edf0f5; scrollbar-width:none; }
+          .hero-tabs-mobile::-webkit-scrollbar { display:none; }
+          .demo-body { height:auto; min-height:260px; }
+          .hero-text  { text-align:center; }
+          .hero-sub   { margin-left:auto; margin-right:auto; }
+          .hero-ctas  { width:100%; }
+        }
       `}</style>
 
-      {/* ── TOP: headline section ── */}
-      <div className="max-w-[1100px] mx-auto px-8 pt-32 pb-16 lg:pt-40">
+      {/* ── Headline ── */}
+      <div className="max-w-[1100px] mx-auto px-6 pt-28 pb-12 lg:px-8 lg:pt-40 lg:pb-16">
         <div className="flex flex-col lg:flex-row lg:items-start lg:gap-16">
-
-          {/* Left: headline + body */}
-          <div className="flex-1 min-w-0">
-            <h1 style={{ fontSize: "clamp(2.4rem,4.5vw,3.6rem)", lineHeight: 1.08, fontWeight: 800, color: "#0f1523", letterSpacing: "-0.03em" }} className="mb-6">
+          <div className="flex-1 min-w-0 hero-text">
+            <h1 style={{ fontSize:"clamp(2rem,5vw,3.6rem)", lineHeight:1.08, fontWeight:800, color:"#0f1523", letterSpacing:"-0.03em" }} className="mb-5">
               Your AI receptionist<br />for every missed call.<br />
-              <span style={{ color: "#533afd" }}>Always on, 24/7.</span>
+              <span style={{ color:"#533afd" }}>Always on, 24/7.</span>
             </h1>
-            <p style={{ fontSize: "1.125rem", color: "#4a5568", lineHeight: 1.7, maxWidth: 520 }}>
+            <p className="hero-sub" style={{ fontSize:"1.05rem", color:"#4a5568", lineHeight:1.7, maxWidth:520 }}>
               QuantaMend AI receptionists answer every call, qualify leads, book appointments,
               and reactivate dormant clients — automatically, in any language, around the clock.
             </p>
           </div>
-
-          {/* Right: CTAs */}
-          <div className="mt-8 lg:mt-3 flex flex-col gap-3 lg:w-[320px] shrink-0">
+          <div className="hero-ctas mt-7 lg:mt-3 flex flex-col gap-3 lg:w-[320px] shrink-0">
             <a href="#cta" className="btn-primary text-base py-3.5 px-8 justify-center">
               Start my free pilot <ArrowRight size={15} />
             </a>
             <a href="#how-it-works" className="btn-ghost text-base py-3.5 px-8 justify-center">
               See how it works
             </a>
-            <p style={{ fontSize: "0.78rem", color: "#888", textAlign: "center" }}>
-              100 calls handled · zero risk · cancel any time
-            </p>
+            <p style={{ fontSize:"0.78rem", color:"#888", textAlign:"center" }}>100 calls handled · zero risk · cancel any time</p>
           </div>
         </div>
       </div>
 
-      {/* ── DEMO PANEL ── */}
-      <div className="max-w-[1100px] mx-auto px-8 pb-20">
+      {/* ── Demo panel ── */}
+      <div className="max-w-[1100px] mx-auto px-4 pb-16 lg:px-8 lg:pb-20">
         {ind?.audioSrc && <audio key={ind.id} ref={audioRef} src={ind.audioSrc} preload="metadata" />}
 
-        <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", boxShadow: "0 24px 64px rgba(0,0,0,.08), 0 8px 24px rgba(0,0,0,.05)" }} className="overflow-hidden">
+        <div style={{ background:"#fff", borderRadius:16, border:"1px solid #e2e8f0", boxShadow:"0 24px 64px rgba(0,0,0,.08)" }} className="overflow-hidden">
 
-          {/* Top bar */}
-          <div style={{ borderBottom: "1px solid #edf0f5", padding: "12px 20px" }} className="flex items-center gap-4">
-            <button id="hero-play-btn" onClick={togglePlay} disabled={selIdx === null}
-              style={{ width: 36, height: 36, borderRadius: "50%", background: selIdx === null ? "#c5c9f5" : "#533afd", border: "none", cursor: selIdx === null ? "not-allowed" : "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              {playing
-                ? <Pause size={13} color="#fff" fill="#fff" />
-                : <Play  size={13} color="#fff" fill="#fff" style={{ marginLeft: 2 }} />}
+          {/* Player bar */}
+          <div style={{ borderBottom:"1px solid #edf0f5", padding:"11px 14px" }} className="flex items-center gap-3">
+            <button id="hero-play-btn" onClick={togglePlay} disabled={selIdx===null}
+              style={{ width:34, height:34, borderRadius:"50%", flexShrink:0,
+                background:selIdx===null?"#c5c9f5":"#533afd", border:"none",
+                cursor:selIdx===null?"not-allowed":"pointer",
+                display:"flex", alignItems:"center", justifyContent:"center" }}>
+              {playing ? <Pause size={12} color="#fff" fill="#fff"/> : <Play size={12} color="#fff" fill="#fff" style={{marginLeft:2}}/>}
             </button>
-
-            <Waveform active={playing} />
-
-            <div style={{ flex: 1, height: 5, background: "#edf0f5", borderRadius: 9, cursor: "pointer", overflow: "hidden" }} onClick={seek}>
-              <div style={{ height: "100%", width: `${pct}%`, background: "#533afd", borderRadius: 9, transition: "width .15s linear" }} />
+            <Waveform active={playing}/>
+            <div style={{ flex:1, height:4, background:"#edf0f5", borderRadius:9, cursor:"pointer", overflow:"hidden" }} onClick={seek}>
+              <div style={{ height:"100%", width:`${pct}%`, background:"#533afd", borderRadius:9, transition:"width .15s linear" }}/>
             </div>
-
-            <span style={{ fontSize: 11, fontFamily: "monospace", color: "#9aa0b0", whiteSpace: "nowrap" }}>
-              {fmt(cur)} / {fmt(dur)}
-            </span>
-
-            <div style={{ display: "flex", gap: 6 }}>
-              {industries.map((x, i) => {
-                const Icon = x.icon;
-                const on = selIdx === i;
-                return (
-                  <button key={x.id} id={`tab-${x.id}`} onClick={() => pick(i)} style={{
-                    display: "flex", alignItems: "center", gap: 5, padding: "6px 12px",
-                    borderRadius: 20, fontSize: 12, fontWeight: 500, border: "1px solid",
-                    borderColor: on ? "#533afd" : "#dde3ed", background: on ? "#533afd" : "#fff",
-                    color: on ? "#fff" : "#64748d", cursor: "pointer", whiteSpace: "nowrap", transition: "all .18s",
-                  }}>
-                    <Icon size={10} /><span className="hidden md:inline">{x.label}</span>
-                  </button>
-                );
-              })}
+            <span style={{ fontSize:11, fontFamily:"monospace", color:"#9aa0b0", whiteSpace:"nowrap", flexShrink:0 }}>{fmt(cur)} / {fmt(dur)}</span>
+            {/* Desktop-only tabs in the bar */}
+            <div className="hero-tabs-desktop">
+              {industries.map((x,i)=>{ const Icon=x.icon; const on=selIdx===i; return (
+                <button key={x.id} id={`tab-${x.id}`} onClick={()=>pick(i)} style={{
+                  display:"flex", alignItems:"center", gap:5, padding:"5px 11px",
+                  borderRadius:20, fontSize:12, fontWeight:500, border:"1px solid",
+                  borderColor:on?"#533afd":"#dde3ed", background:on?"#533afd":"#fff",
+                  color:on?"#fff":"#64748d", cursor:"pointer", whiteSpace:"nowrap", transition:"all .18s" }}>
+                  <Icon size={10}/><span>{x.label}</span>
+                </button>
+              );})}
             </div>
           </div>
 
-          {/* Body */}
-          <div style={{ display: "flex", height: 360 }}>
+          {/* Mobile-only tabs row */}
+          <div className="hero-tabs-mobile">
+            {industries.map((x,i)=>{ const Icon=x.icon; const on=selIdx===i; return (
+              <button key={x.id} onClick={()=>pick(i)} style={{
+                display:"flex", alignItems:"center", gap:5, padding:"6px 13px",
+                borderRadius:20, fontSize:12, fontWeight:500, border:"1px solid", flexShrink:0,
+                borderColor:on?"#533afd":"#dde3ed", background:on?"#533afd":"#fff",
+                color:on?"#fff":"#64748d", cursor:"pointer", whiteSpace:"nowrap" }}>
+                <Icon size={11}/>{x.label}
+              </button>
+            );})}
+          </div>
 
-            {/* Left: feature cards OR "Let us show you" */}
-            <div style={{ width: 240, borderRight: "1px solid #edf0f5", background: "#fafbfe", padding: "20px 16px", display: "flex", flexDirection: "column", gap: 8, flexShrink: 0 }} className="hidden lg:flex">
-              {selIdx === null ? (
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100%", gap: 12, textAlign: "center" }}>
-                  <p style={{ fontWeight: 700, fontSize: "1.1rem", color: "#0f1523" }}>Let us show you.</p>
-                  <p style={{ fontSize: "0.82rem", color: "#9aa0b0" }}>Select an industry to play a real demo.</p>
+          {/* Body */}
+          <div className="demo-body">
+            {/* Left feature cards — desktop only */}
+            <div style={{ width:240, borderRight:"1px solid #edf0f5", background:"#fafbfe", padding:"20px 16px", flexDirection:"column", gap:8, flexShrink:0 }} className="hidden lg:flex">
+              {selIdx===null ? (
+                <div style={{ display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", height:"100%", gap:10, textAlign:"center" }}>
+                  <p style={{ fontWeight:700, fontSize:"1.05rem", color:"#0f1523" }}>Let us show you.</p>
+                  <p style={{ fontSize:"0.8rem", color:"#9aa0b0" }}>Select an industry to play a real demo.</p>
                 </div>
               ) : (
                 <>
-                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#b0b8cc", marginBottom: 4 }}>AI Capabilities</p>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
-                    {FEATURE_CARDS.map((fc, fi) => {
-                      const lit = vis > fi;
-                      const Icon = fc.icon;
-                      return (
-                        <div key={fc.label} style={{
-                          padding: "10px 8px", borderRadius: 10, border: `1px solid ${lit ? "#c5c9f5" : "#edf0f5"}`,
-                          background: lit ? "#f0f0fe" : "#fff", display: "flex", flexDirection: "column",
-                          alignItems: "center", gap: 6, transition: "all .4s",
-                        }}>
-                          <Icon size={16} color={lit ? "#533afd" : "#c0c8d8"} strokeWidth={1.8} />
-                          <span style={{ fontSize: 10, fontWeight: 600, color: lit ? "#533afd" : "#b0b8cc", textAlign: "center", lineHeight: 1.3 }}>{fc.label}</span>
-                        </div>
-                      );
-                    })}
+                  <p style={{ fontSize:10, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:"#b0b8cc", marginBottom:4 }}>AI Capabilities</p>
+                  <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8 }}>
+                    {FEATURE_CARDS.map((fc,fi)=>{ const lit=vis>fi; const Icon=fc.icon; return (
+                      <div key={fc.label} style={{ padding:"10px 8px", borderRadius:10, border:`1px solid ${lit?"#c5c9f5":"#edf0f5"}`, background:lit?"#f0f0fe":"#fff", display:"flex", flexDirection:"column", alignItems:"center", gap:6, transition:"all .4s" }}>
+                        <Icon size={16} color={lit?"#533afd":"#c0c8d8"} strokeWidth={1.8}/>
+                        <span style={{ fontSize:10, fontWeight:600, color:lit?"#533afd":"#b0b8cc", textAlign:"center", lineHeight:1.3 }}>{fc.label}</span>
+                      </div>
+                    );})}
                   </div>
                 </>
               )}
             </div>
 
-            {/* Right: transcript or CTA */}
-            <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
-
-              {selIdx === null ? (
-                /* ── Idle CTA overlay ── */
-                <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 20, padding: "24px 32px", textAlign: "center" }}>
+            {/* Transcript / idle */}
+            <div style={{ flex:1, display:"flex", flexDirection:"column", overflow:"hidden" }}>
+              {selIdx===null ? (
+                <div style={{ flex:1, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:18, padding:"24px 20px", textAlign:"center" }}>
                   <div>
-                    <p style={{ fontWeight: 700, fontSize: "1.35rem", color: "#0f1523", marginBottom: 6 }}>Let us show you.</p>
-                    <p style={{ fontSize: "0.9rem", color: "#9aa0b0" }}>Select an industry to play a real demo.</p>
+                    <p style={{ fontWeight:700, fontSize:"1.25rem", color:"#0f1523", marginBottom:6 }}>Let us show you.</p>
+                    <p style={{ fontSize:"0.88rem", color:"#9aa0b0" }}>Select an industry to play a real demo.</p>
                   </div>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center" }}>
-                    {industries.map((x, i) => {
-                      const Icon = x.icon;
-                      return (
-                        <button key={x.id} onClick={() => pick(i)} style={{
-                          display: "flex", alignItems: "center", gap: 7, padding: "9px 18px",
-                          borderRadius: 24, border: "1px solid #dde3ed", background: "#fff",
-                          fontSize: 13, fontWeight: 500, color: "#4a5568", cursor: "pointer",
-                          transition: "all .18s",
-                        }}
-                        onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.borderColor="#533afd"; (e.currentTarget as HTMLButtonElement).style.color="#533afd"; }}
-                        onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.borderColor="#dde3ed"; (e.currentTarget as HTMLButtonElement).style.color="#4a5568"; }}>
-                          <Icon size={14} />{x.label}
-                        </button>
-                      );
-                    })}
+                  <div style={{ display:"flex", flexWrap:"wrap", gap:10, justifyContent:"center" }}>
+                    {industries.map((x,i)=>{ const Icon=x.icon; return (
+                      <button key={x.id} onClick={()=>pick(i)} style={{
+                        display:"flex", alignItems:"center", gap:7, padding:"9px 16px",
+                        borderRadius:24, border:"1px solid #dde3ed", background:"#fff",
+                        fontSize:13, fontWeight:500, color:"#4a5568", cursor:"pointer" }}
+                        onMouseEnter={e=>{ (e.currentTarget as HTMLButtonElement).style.borderColor="#533afd"; (e.currentTarget as HTMLButtonElement).style.color="#533afd"; }}
+                        onMouseLeave={e=>{ (e.currentTarget as HTMLButtonElement).style.borderColor="#dde3ed"; (e.currentTarget as HTMLButtonElement).style.color="#4a5568"; }}>
+                        <Icon size={14}/>{x.label}
+                      </button>
+                    );})}
                   </div>
                 </div>
               ) : (
-                /* ── Transcript ── */
                 <>
-                  <div style={{ padding: "10px 20px", borderBottom: "1px solid #edf0f5", background: "#fafbfe", display: "flex", justifyContent: "space-between" }}>
-                    <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#b0b8cc" }}>Live Transcript</span>
-                    <span style={{ fontSize: 11, color: "#b0b8cc" }}>{ind!.businessName}</span>
+                  <div style={{ padding:"9px 16px", borderBottom:"1px solid #edf0f5", background:"#fafbfe", display:"flex", justifyContent:"space-between" }}>
+                    <span style={{ fontSize:10, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:"#b0b8cc" }}>Live Transcript</span>
+                    <span style={{ fontSize:11, color:"#b0b8cc" }}>{ind!.businessName}</span>
                   </div>
-                  <div ref={transcriptR} style={{ flex: 1, overflowY: "auto", padding: "16px 24px", display: "flex", flexDirection: "column", gap: 14 }}>
-                    {ind!.messages.slice(0, vis).map((msg, i) => (
-                      <div key={i} data-last={i === vis - 1} style={{ animation: "ln .3s ease forwards" }}>
-                        <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: msg.role === "ai" ? "#533afd" : "#9aa0b0", marginBottom: 3, display: "flex", alignItems: "center", gap: 5 }}>
-                          {msg.role === "ai" ? (
-                            <><span style={{ display:"inline-block",width:6,height:6,borderRadius:"50%",background:"#533afd" }} />Agent</>
-                          ) : "Caller"}
+                  <div ref={transcriptR} style={{ flex:1, overflowY:"auto", padding:"14px 18px", display:"flex", flexDirection:"column", gap:14 }}>
+                    {ind!.messages.slice(0,vis).map((msg,i)=>(
+                      <div key={i} data-last={i===vis-1} style={{ animation:"ln .3s ease forwards" }}>
+                        <div style={{ fontSize:10, fontWeight:600, letterSpacing:"0.1em", textTransform:"uppercase", color:msg.role==="ai"?"#533afd":"#9aa0b0", marginBottom:3, display:"flex", alignItems:"center", gap:5 }}>
+                          {msg.role==="ai" ? <><span style={{ display:"inline-block",width:6,height:6,borderRadius:"50%",background:"#533afd" }}/>Agent</> : "Caller"}
                         </div>
-                        <p style={{ fontSize: 13.5, color: "#1a202c", lineHeight: 1.65, margin: 0, paddingLeft: msg.role === "ai" ? 0 : 12 }}>
-                          {msg.text}
-                        </p>
+                        <p style={{ fontSize:13.5, color:"#1a202c", lineHeight:1.65, margin:0, paddingLeft:msg.role==="ai"?0:12 }}>{msg.text}</p>
                       </div>
                     ))}
                   </div>
@@ -390,7 +381,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <p style={{ textAlign: "center", fontSize: 11, color: "#b0b8cc", marginTop: 12 }}>
+        <p style={{ textAlign:"center", fontSize:11, color:"#b0b8cc", marginTop:10 }}>
           Real AI voice calls — powered by QuantaMend
         </p>
       </div>
